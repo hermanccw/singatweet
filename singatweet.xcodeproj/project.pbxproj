@@ -14,6 +14,7 @@
 		8B9E08331A68B6EF0041FCC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E08321A68B6EF0041FCC2 /* Images.xcassets */; };
 		8B9E08361A68B6EF0041FCC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E08341A68B6EF0041FCC2 /* LaunchScreen.xib */; };
 		8B9E08421A68B6EF0041FCC2 /* singatweetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08411A68B6EF0041FCC2 /* singatweetTests.m */; };
+		F703042E819041E28C3B1941 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89255BCE403D4203A037031A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39A1E4D37F134CD683D35006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		89255BCE403D4203A037031A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E08221A68B6EF0041FCC2 /* singatweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singatweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E08261A68B6EF0041FCC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E08271A68B6EF0041FCC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F703042E819041E28C3B1941 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +70,8 @@
 				8B9E08241A68B6EF0041FCC2 /* singatweet */,
 				8B9E083E1A68B6EF0041FCC2 /* singatweetTests */,
 				8B9E08231A68B6EF0041FCC2 /* Products */,
+				39A1E4D37F134CD683D35006 /* Pods.xcconfig */,
+				E7E84A8DBEF147E2BCEC45A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +125,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E7E84A8DBEF147E2BCEC45A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89255BCE403D4203A037031A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B9E08451A68B6EF0041FCC2 /* Build configuration list for PBXNativeTarget "singatweet" */;
 			buildPhases = (
+				869517EAEF594FFFAEACFEBE /* Check Pods Manifest.lock */,
 				8B9E081E1A68B6EF0041FCC2 /* Sources */,
 				8B9E081F1A68B6EF0041FCC2 /* Frameworks */,
 				8B9E08201A68B6EF0041FCC2 /* Resources */,
+				4B8EB035DFC049749952A97C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +229,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B8EB035DFC049749952A97C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869517EAEF594FFFAEACFEBE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B9E081E1A68B6EF0041FCC2 /* Sources */ = {
@@ -341,9 +390,11 @@
 		};
 		8B9E08461A68B6EF0041FCC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39A1E4D37F134CD683D35006 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = singatweet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,9 +402,11 @@
 		};
 		8B9E08471A68B6EF0041FCC2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39A1E4D37F134CD683D35006 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = singatweet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +465,7 @@
 				8B9E08471A68B6EF0041FCC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B9E08481A68B6EF0041FCC2 /* Build configuration list for PBXNativeTarget "singatweetTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +474,7 @@
 				8B9E084A1A68B6EF0041FCC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

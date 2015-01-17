@@ -24,4 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)recordPressed:(id)sender {
+    UIButton *button = (UIButton*)sender;
+    [button setTitle:@"Recording" forState:UIControlStateNormal];
+}
+
 @end
