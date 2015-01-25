@@ -9,11 +9,13 @@
 #import "ViewController.h"
 #import "TheAmazingAudioEngine.h"
 #import "AERecorder.h"
+#import "TPOscilloscopeLayer.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) AEAudioController *audioController;
 @property (nonatomic, strong) AERecorder *recorder;
 @property (nonatomic, strong) AEAudioFilePlayer *player;
+@property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
 @end
 
 @implementation ViewController
@@ -28,6 +30,14 @@
     // This is the crucial bit of code that was missing
     NSError *error;
     [self.audioController start:&error];
+    
+    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
+    self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.bounds.size.width, 80);
+    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    [self.headerView.layer addSublayer:self.inputOscilloscope];
+    [self.audioController addInputReceiver:self.inputOscilloscope];
+    [self.inputOscilloscope start];
+    
 }
 
 - (void)didReceiveMemoryWarning {

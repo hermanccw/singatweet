@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B9E08281A68B6EF0041FCC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08271A68B6EF0041FCC2 /* main.m */; };
 		8B9E082B1A68B6EF0041FCC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E082A1A68B6EF0041FCC2 /* AppDelegate.m */; };
 		8B9E082E1A68B6EF0041FCC2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E082D1A68B6EF0041FCC2 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		39A1E4D37F134CD683D35006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		89255BCE403D4203A037031A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
+		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
 		8B9E08221A68B6EF0041FCC2 /* singatweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singatweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E08261A68B6EF0041FCC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E08271A68B6EF0041FCC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				8B9E08321A68B6EF0041FCC2 /* Images.xcassets */,
 				8B9E08341A68B6EF0041FCC2 /* LaunchScreen.xib */,
 				8B9E08251A68B6EF0041FCC2 /* Supporting Files */,
+				8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */,
+				8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */,
 			);
 			path = singatweet;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */,
 				8B9E082E1A68B6EF0041FCC2 /* ViewController.m in Sources */,
 				8B9E082B1A68B6EF0041FCC2 /* AppDelegate.m in Sources */,
 				8B9E08281A68B6EF0041FCC2 /* main.m in Sources */,
