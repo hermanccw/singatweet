@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
-
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @end
 
