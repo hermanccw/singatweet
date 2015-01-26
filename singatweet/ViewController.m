@@ -32,12 +32,18 @@
     [self.audioController start:&error];
     
     self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
-    self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.bounds.size.width, 80);
+    self.inputOscilloscope.frame = CGRectZero;
     self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     [self.headerView.layer addSublayer:self.inputOscilloscope];
     [self.audioController addInputReceiver:self.inputOscilloscope];
     [self.inputOscilloscope start];
-    
+//    self.headerView.layer.borderColor = [UIColor redColor].CGColor;
+//    self.headerView.layer.borderWidth = 1.0f;
+}
+
+- (void)viewDidLayoutSubviews {
+    // layout layer here; doesn't like autolayout
+    self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 80);
 }
 
 - (void)didReceiveMemoryWarning {

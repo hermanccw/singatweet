@@ -63,6 +63,7 @@
                             <mask key="constraints">
                                 <exclude reference="0bi-gp-LhA"/>
                                 <exclude reference="5tw-sY-2fI"/>
+                                <exclude reference="icK-t2-cuW"/>
                                 <exclude reference="7N7-1V-flY"/>
                             </mask>
                         </variation>
