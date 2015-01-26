@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 ironark. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "STRecordViewController.h"
 #import "TheAmazingAudioEngine.h"
 #import "AERecorder.h"
 #import "TPOscilloscopeLayer.h"
 
-@interface ViewController ()
+@interface STRecordViewController ()
 @property (nonatomic, strong) AEAudioController *audioController;
 @property (nonatomic, strong) AERecorder *recorder;
 @property (nonatomic, strong) AEAudioFilePlayer *player;
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
 @end
 
-@implementation ViewController
+@implementation STRecordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,9 +105,9 @@
         }
         
         self.player.removeUponFinish = YES;
-        __weak ViewController *weakSelf = self;
+        __weak STRecordViewController *weakSelf = self;
         self.player.completionBlock = ^{
-            ViewController *strongSelf = weakSelf;
+            STRecordViewController *strongSelf = weakSelf;
             strongSelf.playButton.selected = NO;
             weakSelf.player = nil;
         };
