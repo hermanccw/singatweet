@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpv-Sx-k93">
-                                <rect key="frame" x="275" y="170" width="50" height="30"/>
+                                <rect key="frame" x="275" y="265.5" width="50" height="30"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-eR-g5I">
-                                <rect key="frame" x="285" y="220" width="30" height="30"/>
+                                <rect key="frame" x="285" y="315.5" width="30" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -44,6 +44,47 @@
                                     <constraint firstAttribute="height" constant="100" id="Xor-BP-vpe"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cId-Vv-SKu" customClass="STRecordingTweetView">
+                                <rect key="frame" x="26" y="130" width="548" height="86"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sdt-7K-WRB">
+                                        <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="2ng-EF-npE"/>
+                                            <constraint firstAttribute="width" constant="70" id="BZv-Xu-Jnp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Tweetman123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-rX-P8f">
+                                        <rect key="frame" x="86" y="8" width="120.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ain't no mountain high enough" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-RV-16O">
+                                        <rect key="frame" x="86" y="28.5" width="454" height="49.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Sdt-7K-WRB" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="top" constant="8" id="6iY-cz-1Qy"/>
+                                    <constraint firstItem="DmT-rX-P8f" firstAttribute="leading" secondItem="Sdt-7K-WRB" secondAttribute="trailing" constant="8" id="EQq-g9-lGL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sdt-7K-WRB" secondAttribute="bottom" constant="8" id="IXD-gX-NdZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="B0J-RV-16O" secondAttribute="bottom" constant="8" id="NAI-e0-4Nu"/>
+                                    <constraint firstAttribute="trailing" secondItem="B0J-RV-16O" secondAttribute="trailing" constant="8" id="aIN-T5-mrL"/>
+                                    <constraint firstItem="B0J-RV-16O" firstAttribute="leading" secondItem="Sdt-7K-WRB" secondAttribute="trailing" constant="8" id="eBh-fY-3GT"/>
+                                    <constraint firstItem="B0J-RV-16O" firstAttribute="top" secondItem="DmT-rX-P8f" secondAttribute="bottom" id="kNi-37-MO2"/>
+                                    <constraint firstItem="Sdt-7K-WRB" firstAttribute="leading" secondItem="cId-Vv-SKu" secondAttribute="leading" constant="8" id="tud-gM-m7q"/>
+                                    <constraint firstItem="DmT-rX-P8f" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="top" constant="8" id="wiS-By-ezP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="avatar" destination="Sdt-7K-WRB" id="I8a-dT-unX"/>
+                                    <outlet property="tweetText" destination="B0J-RV-16O" id="7OY-JS-zzU"/>
+                                    <outlet property="twitterHandle" destination="DmT-rX-P8f" id="dfG-lT-pA2"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -54,9 +95,13 @@
                             <constraint firstItem="gaO-eR-g5I" firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="9hz-Q5-GXS"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="B7N-aN-Hxg"/>
                             <constraint firstItem="gaO-eR-g5I" firstAttribute="top" secondItem="Jpv-Sx-k93" secondAttribute="bottom" constant="20" id="BRm-WG-ywA"/>
+                            <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="Eyq-1k-efW"/>
                             <constraint firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="Jm6-lp-PAS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cId-Vv-SKu" secondAttribute="trailing" constant="10" id="aWl-Ne-hiD"/>
+                            <constraint firstItem="cId-Vv-SKu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="duE-Lj-nqX"/>
                             <constraint firstItem="Jpv-Sx-k93" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="50" id="dyF-bF-EqF"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="icK-t2-cuW"/>
+                            <constraint firstItem="Jpv-Sx-k93" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="bottom" constant="50" id="rLg-pV-5iz"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="vwK-f3-2P5"/>
                         </constraints>
                         <variation key="default">
@@ -65,6 +110,7 @@
                                 <exclude reference="5tw-sY-2fI"/>
                                 <exclude reference="icK-t2-cuW"/>
                                 <exclude reference="7N7-1V-flY"/>
+                                <exclude reference="dyF-bF-EqF"/>
                             </mask>
                         </variation>
                     </view>
@@ -72,6 +118,7 @@
                         <outlet property="headerView" destination="aib-Px-BMp" id="TiQ-qr-iY6"/>
                         <outlet property="playButton" destination="gaO-eR-g5I" id="V0F-oP-jda"/>
                         <outlet property="recordButton" destination="Jpv-Sx-k93" id="Ne9-vv-N0f"/>
+                        <outlet property="tweetView" destination="cId-Vv-SKu" id="UHV-nX-wWd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

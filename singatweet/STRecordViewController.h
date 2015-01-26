@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STRecordingTweetView.h"
 
 @interface STRecordViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIView *headerView;
+@property (nonatomic, weak) IBOutlet STRecordingTweetView *tweetView;
 @end
 
