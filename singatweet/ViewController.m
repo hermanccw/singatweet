@@ -43,7 +43,7 @@
 
 - (void)viewDidLayoutSubviews {
     // layout layer here; doesn't like autolayout
-    self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 80);
+    self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, self.headerView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
