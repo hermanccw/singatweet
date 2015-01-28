@@ -10,6 +10,8 @@
 #import "TheAmazingAudioEngine.h"
 #import "AERecorder.h"
 #import "TPOscilloscopeLayer.h"
+#import <TwitterKit/TwitterKit.h>
+
 
 @interface STRecordViewController ()
 @property (nonatomic, strong) AEAudioController *audioController;
@@ -115,6 +117,15 @@
         
         self.playButton.selected = YES;
     }
+ 
+
+}
+
+- (IBAction)twitterLoginClicked {
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        // play with the Twitter session
+        NSLog(@"here");
+    }];
 }
 
 @end

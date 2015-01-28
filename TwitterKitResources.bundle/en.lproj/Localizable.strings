@@ -1,0 +1,20 @@
+/* Label for button to bring up share dialog to share this Tweet in a single Tweet view */
+"tw__share_tweet" = "Share Tweet";
+/* Subject format used to prefill certain sharing options such as Email includes full name (%1$@) and screenname (%2$@) */
+"tw__share_tweet_subject_format" = "Tweet from %1$@ (@%2$@)";
+/* Generic share text format used in all sharing options includes screenname (%1$@) and URL to the Tweet (%2$@) */
+"tw__share_tweet_generic_template_format" = "Check out @%1$@\'s Tweet: %2$@";
+
+
+
+/* Accessibility Labels */
+
+/* Text spoken out with VoiceOver when a tweet has an image showing */
+"tw__single_image" = "One image attached";
+/* Text spoken out with VoiceOver for selecting the profile image on a regular tweet view */
+"tw__tweet_profile_accessibility" = "Profile";
+/* Text spoken out with VoiceOver for selecting the attached image on a regular tweet view */
+"tw__tweet_image_accessibility" = "Attachment";
+
+/* Test String (just for unit tests) */
+"tw__test_string" = "Test";
