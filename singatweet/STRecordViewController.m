@@ -11,6 +11,7 @@
 #import "AERecorder.h"
 #import "TPOscilloscopeLayer.h"
 #import <TwitterKit/TwitterKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface STRecordViewController ()
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) AERecorder *recorder;
 @property (nonatomic, strong) AEAudioFilePlayer *player;
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) NSInteger tickCount;
 @end
 
 @implementation STRecordViewController
@@ -39,6 +42,7 @@
     [self.headerView.layer addSublayer:self.inputOscilloscope];
     [self.audioController addInputReceiver:self.inputOscilloscope];
     [self.inputOscilloscope start];
+    self.tickCount = 3;
 //    self.headerView.layer.borderColor = [UIColor redColor].CGColor;
 //    self.headerView.layer.borderWidth = 1.0f;
 }
@@ -60,25 +64,8 @@
         [self.audioController removeInputReceiver:self.recorder];
         self.recorder = nil;
         self.recordButton.selected = NO;
-    } else {
-        self.recorder = [[AERecorder alloc] initWithAudioController:self.audioController];
-        NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
-        NSError *error = nil;
-        if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileAIFFType error:&error] ) {
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[NSString stringWithFormat:@"Couldn't start recording: %@", [error localizedDescription]]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"OK", nil] show];
-            self.recorder = nil;
-            return;
-        }
-        
-        self.recordButton.selected = YES;
-        
-        [self.audioController addOutputReceiver:self.recorder];
-        [self.audioController addInputReceiver:self.recorder];
+    } else if (self.timer == nil) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
     }
 }
 
@@ -126,6 +113,41 @@
         // play with the Twitter session
         NSLog(@"here");
     }];
+}
+
+- (void) tick {
+    if (self.tickCount > 0) {
+        AudioServicesPlaySystemSound(1104);
+        NSLog(@"TICK");
+        self.tickCount = self.tickCount - 1;
+    }
+    else {
+        [self.timer invalidate];
+        self.timer = nil;
+        self.tickCount = 3;
+        [self startRecording];
+    }
+}
+
+- (void) startRecording {
+        self.recorder = [[AERecorder alloc] initWithAudioController:self.audioController];
+        NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
+        NSError *error = nil;
+        if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileAIFFType error:&error] ) {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[NSString stringWithFormat:@"Couldn't start recording: %@", [error localizedDescription]]
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:@"OK", nil] show];
+            self.recorder = nil;
+            return;
+        }
+
+        self.recordButton.selected = YES;
+
+        [self.audioController addOutputReceiver:self.recorder];
+        [self.audioController addInputReceiver:self.recorder];
 }
 
 @end
