@@ -15,5 +15,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 @property (nonatomic, weak) IBOutlet STRecordingTweetView *tweetView;
+@property (nonatomic, weak) IBOutlet UILabel *countDownLabel;
 @end
 

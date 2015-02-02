@@ -85,29 +85,26 @@
                                     <outlet property="twitterHandle" destination="DmT-rX-P8f" id="dfG-lT-pA2"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQd-8H-A0T">
-                                <rect key="frame" x="284" y="372" width="33" height="30"/>
-                                <state key="normal" title="login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="twitterLoginClicked" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ea3-ch-vsk"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Count Down Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-HU-Gkw">
+                                <rect key="frame" x="229" y="353" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="476" id="0bi-gp-LhA"/>
+                            <constraint firstItem="1xM-HU-Gkw" firstAttribute="centerX" secondItem="gaO-eR-g5I" secondAttribute="centerX" id="55E-XA-nM6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aib-Px-BMp" secondAttribute="trailing" constant="10" id="5Aq-Or-Aho"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="150" id="5tw-sY-2fI"/>
                             <constraint firstItem="Jpv-Sx-k93" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="7N7-1V-flY"/>
-                            <constraint firstItem="dQd-8H-A0T" firstAttribute="centerX" secondItem="gaO-eR-g5I" secondAttribute="centerX" id="85Z-z6-A5a"/>
                             <constraint firstItem="gaO-eR-g5I" firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="9hz-Q5-GXS"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="B7N-aN-Hxg"/>
                             <constraint firstItem="gaO-eR-g5I" firstAttribute="top" secondItem="Jpv-Sx-k93" secondAttribute="bottom" constant="20" id="BRm-WG-ywA"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="Eyq-1k-efW"/>
+                            <constraint firstItem="1xM-HU-Gkw" firstAttribute="top" secondItem="gaO-eR-g5I" secondAttribute="bottom" constant="8" symbolic="YES" id="Fuf-P8-M5g"/>
                             <constraint firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="Jm6-lp-PAS"/>
-                            <constraint firstItem="dQd-8H-A0T" firstAttribute="top" secondItem="gaO-eR-g5I" secondAttribute="bottom" constant="27" id="Q8i-sB-7pS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cId-Vv-SKu" secondAttribute="trailing" constant="10" id="aWl-Ne-hiD"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="duE-Lj-nqX"/>
                             <constraint firstItem="Jpv-Sx-k93" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="50" id="dyF-bF-EqF"/>
@@ -126,6 +123,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="1xM-HU-Gkw" id="WUT-3u-XaK"/>
                         <outlet property="headerView" destination="aib-Px-BMp" id="TiQ-qr-iY6"/>
                         <outlet property="playButton" destination="gaO-eR-g5I" id="V0F-oP-jda"/>
                         <outlet property="recordButton" destination="Jpv-Sx-k93" id="Ne9-vv-N0f"/>
