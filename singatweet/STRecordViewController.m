@@ -21,6 +21,7 @@
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger tickCount;
+@property (assign) SystemSoundID tickSound;
 @end
 
 @implementation STRecordViewController
@@ -117,9 +118,11 @@
 
 - (void) tick {
     if (self.tickCount > 0) {
-        AudioServicesPlaySystemSound(1104);
+        [self playTickSound];
         NSLog(@"TICK");
         self.tickCount = self.tickCount - 1;
+        
+        
     }
     else {
         [self.timer invalidate];
@@ -127,6 +130,26 @@
         self.tickCount = 3;
         [self startRecording];
     }
+}
+
+- (void) playTickSound {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"tick" ofType:@"wav"];
+    
+    if ( ![[NSFileManager defaultManager] fileExistsAtPath:path] ) return;
+    
+    NSError *error = nil;
+    self.player = [AEAudioFilePlayer audioFilePlayerWithURL:[NSURL fileURLWithPath:path] audioController:self.audioController error:&error];
+    
+    if ( !self.player ) {
+        return;
+    }
+    
+    self.player.removeUponFinish = YES;
+    __weak STRecordViewController *weakSelf = self;
+    self.player.completionBlock = ^{
+        weakSelf.player = nil;
+    };
+    [self.audioController addChannels:@[self.player]];
 }
 
 - (void) startRecording {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
 		8B9E08281A68B6EF0041FCC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08271A68B6EF0041FCC2 /* main.m */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		39A1E4D37F134CD683D35006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		89255BCE403D4203A037031A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
 		8B6148B11A767BBC0083CF7D /* STRecordingTweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordingTweetView.h; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		8B9E08241A68B6EF0041FCC2 /* singatweet */ = {
 			isa = PBXGroup;
 			children = (
+				8B4609E11A7EF28500F2231B /* tick.wav */,
 				8B9E08291A68B6EF0041FCC2 /* AppDelegate.h */,
 				8B9E082A1A68B6EF0041FCC2 /* AppDelegate.m */,
 				8B9E082C1A68B6EF0041FCC2 /* STRecordViewController.h */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4609E21A7EF28500F2231B /* tick.wav in Resources */,
 				8BDF90ED1A78AC090017A846 /* TwitterKitResources.bundle in Resources */,
 				8B9E08311A68B6EF0041FCC2 /* Main.storyboard in Resources */,
 				8B9E08361A68B6EF0041FCC2 /* LaunchScreen.xib in Resources */,
