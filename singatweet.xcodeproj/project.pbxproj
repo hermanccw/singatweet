@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B202EA11A86CF220096D2DB /* STListTweetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EA01A86CF220096D2DB /* STListTweetInteractor.m */; };
 		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
+		8B8A46E01A84624100A8BA8B /* STListTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */; };
+		8B8A46E41A8465F000A8BA8B /* STListTweetDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A46E31A8465F000A8BA8B /* STListTweetDataManager.m */; };
 		8B9E08281A68B6EF0041FCC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08271A68B6EF0041FCC2 /* main.m */; };
 		8B9E082B1A68B6EF0041FCC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E082A1A68B6EF0041FCC2 /* AppDelegate.m */; };
 		8B9E082E1A68B6EF0041FCC2 /* STRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E082D1A68B6EF0041FCC2 /* STRecordViewController.m */; };
@@ -37,11 +40,20 @@
 /* Begin PBXFileReference section */
 		39A1E4D37F134CD683D35006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		89255BCE403D4203A037031A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B202E9E1A86CE020096D2DB /* STListTweetInteractorIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STListTweetInteractorIO.h; sourceTree = "<group>"; };
+		8B202E9F1A86CF220096D2DB /* STListTweetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STListTweetInteractor.h; sourceTree = "<group>"; };
+		8B202EA01A86CF220096D2DB /* STListTweetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STListTweetInteractor.m; sourceTree = "<group>"; };
 		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
 		8B6148B11A767BBC0083CF7D /* STRecordingTweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordingTweetView.h; sourceTree = "<group>"; };
 		8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordingTweetView.m; sourceTree = "<group>"; };
+		8B8A46DD1A84609D00A8BA8B /* STListModuleInteface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STListModuleInteface.h; sourceTree = "<group>"; };
+		8B8A46DE1A84624100A8BA8B /* STListTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STListTweetViewController.h; sourceTree = "<group>"; };
+		8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STListTweetViewController.m; sourceTree = "<group>"; };
+		8B8A46E11A8462D200A8BA8B /* STListTweetViewInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STListTweetViewInterface.h; sourceTree = "<group>"; };
+		8B8A46E21A8465F000A8BA8B /* STListTweetDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STListTweetDataManager.h; sourceTree = "<group>"; };
+		8B8A46E31A8465F000A8BA8B /* STListTweetDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STListTweetDataManager.m; sourceTree = "<group>"; };
 		8B9E08221A68B6EF0041FCC2 /* singatweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singatweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E08261A68B6EF0041FCC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E08271A68B6EF0041FCC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +95,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B8A46D31A845E7F00A8BA8B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46D41A845EA500A8BA8B /* List */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		8B8A46D41A845EA500A8BA8B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46D51A845FE700A8BA8B /* Module Interface */,
+				8B8A46D61A845FFD00A8BA8B /* Application Logic */,
+				8B8A46D91A84604200A8BA8B /* User Interface */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		8B8A46D51A845FE700A8BA8B /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46DD1A84609D00A8BA8B /* STListModuleInteface.h */,
+			);
+			name = "Module Interface";
+			sourceTree = "<group>";
+		};
+		8B8A46D61A845FFD00A8BA8B /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46D81A84602300A8BA8B /* Data Manager */,
+				8B8A46D71A84600C00A8BA8B /* Interactor */,
+			);
+			name = "Application Logic";
+			sourceTree = "<group>";
+		};
+		8B8A46D71A84600C00A8BA8B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8B202E9E1A86CE020096D2DB /* STListTweetInteractorIO.h */,
+				8B202E9F1A86CF220096D2DB /* STListTweetInteractor.h */,
+				8B202EA01A86CF220096D2DB /* STListTweetInteractor.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		8B8A46D81A84602300A8BA8B /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46E21A8465F000A8BA8B /* STListTweetDataManager.h */,
+				8B8A46E31A8465F000A8BA8B /* STListTweetDataManager.m */,
+			);
+			name = "Data Manager";
+			sourceTree = "<group>";
+		};
+		8B8A46D91A84604200A8BA8B /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46DC1A84606000A8BA8B /* Wireframe */,
+				8B8A46DB1A84605A00A8BA8B /* View */,
+				8B8A46DA1A84605300A8BA8B /* Presenter */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		8B8A46DA1A84605300A8BA8B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		8B8A46DB1A84605A00A8BA8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46DE1A84624100A8BA8B /* STListTweetViewController.h */,
+				8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */,
+				8B8A46E11A8462D200A8BA8B /* STListTweetViewInterface.h */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8B8A46DC1A84606000A8BA8B /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		8B8A46E51A8466A500A8BA8B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A46E61A8466AB00A8BA8B /* Store */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		8B8A46E61A8466AB00A8BA8B /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		8B9E08191A68B6EF0041FCC2 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +221,8 @@
 		8B9E08241A68B6EF0041FCC2 /* singatweet */ = {
 			isa = PBXGroup;
 			children = (
+				8B8A46E51A8466A500A8BA8B /* Common */,
+				8B8A46D31A845E7F00A8BA8B /* Modules */,
 				8B4609E11A7EF28500F2231B /* tick.wav */,
 				8B9E08291A68B6EF0041FCC2 /* AppDelegate.h */,
 				8B9E082A1A68B6EF0041FCC2 /* AppDelegate.m */,
@@ -313,10 +430,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */,
+				8B202EA11A86CF220096D2DB /* STListTweetInteractor.m in Sources */,
 				8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */,
+				8B8A46E41A8465F000A8BA8B /* STListTweetDataManager.m in Sources */,
 				8B9E082E1A68B6EF0041FCC2 /* STRecordViewController.m in Sources */,
 				8B9E082B1A68B6EF0041FCC2 /* AppDelegate.m in Sources */,
 				8B9E08281A68B6EF0041FCC2 /* main.m in Sources */,
+				8B8A46E01A84624100A8BA8B /* STListTweetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
