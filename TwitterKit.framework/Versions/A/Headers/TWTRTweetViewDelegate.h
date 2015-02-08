@@ -10,25 +10,56 @@
 @class TWTRTweet;
 
 /**
- *  Delegate for TWTRTweetView to determine which view controller is used to present new view controllers. Used for things like tapping on the background, on the profile thumbnail, and potential on action buttons in the future.
+ Delegate for `TWTRTweetView` to receive updates on the user interacting with this particular Tweet view.
+ 
+    // Create the tweet view
+    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet];
+    // Set the delegate
+    tweetView.delegate = self;
  */
 @protocol TWTRTweetViewDelegate <NSObject>
 
-/**
- *  Asks the delegate for the UIViewController used to present webviews.
- * 
- *  @return The UIViewController used to present webviews.
- */
-- (UIViewController*)viewControllerForPresentation;
-
 @optional
 
-- (void)didTapTweetView:(TWTRTweetView *)tweetView showingTweet:(TWTRTweet *)tweet;
+/**
+ *  The tweet view was tapped. Implement to show your own webview if desired using the `permalinkURL` property on the `TWTRTweet` object passed in.
+ *
+ *  @param tweetView The Tweet view that was tapped.
+ *  @param tweet     The Tweet model object being shown.
+ */
+- (void)tweetView:(TWTRTweetView *)tweetView didSelectTweet:(TWTRTweet *)tweet;
 
-- (void)didTapURL:(NSURL *)url fromTweet:(TWTRTweet *)tweet;
+/**
+ *  A URL in the text of a tweet was tapped. Implement to show your own webview rather than opening Safari.
+ *
+ *  @param tweetView The Tweet view that was tapped.
+ *  @param url       The URL that was tapped.
+ */
+- (void)tweetView:(TWTRTweetView *)tweetView didTapURL:(NSURL *)url;
 
-- (void)didTapShareForTweet:(TWTRTweet *)tweet;
+/**
+ *  The Tweet view "Share" button was tapped and the `UIActivityViewController` was shown.
+ *
+ *  @param tweetView The Tweet view that was tapped.
+ *  @param tweet     The Tweet model object being shown.
+ */
+- (void)tweetView:(TWTRTweetView *)tweetView willShareTweet:(TWTRTweet *)tweet;
 
-- (void)didCompleteActivity:(NSString *)activityType forTweet:(TWTRTweet *)tweet;
+/**
+ *  The share action for a Tweet was completed.
+ *
+ *  @param tweetView The Tweet view that was tapped.
+ *  @param tweet     The Tweet model object being shown.
+ *  @param shareType The share action that was completed. (e.g. `UIActivityTypePostToFacebook`, `UIActivityTypePostToTwitter`, or `UIActivityTypeMail`)
+ */
+- (void)tweetView:(TWTRTweetView *)tweetView didShareTweet:(TWTRTweet *)tweet withType:(NSString *)shareType;
+
+/**
+ *  The share action for a Tweet was cancelled.
+ *
+ *  @param tweetView The tweet view handling the share action.
+ *  @param tweet     The tweet model object represented.
+ */
+- (void)tweetView:(TWTRTweetView *)tweetView cancelledShareTweet:(TWTRTweet *)tweet;
 
 @end

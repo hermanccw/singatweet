@@ -8,6 +8,11 @@
 
 /**
  *  The NSError domain of errors surfaced by the Twitter API.
+ */
+FOUNDATION_EXPORT NSString * const TWTRAPIErrorDomain;
+
+/**
+ *  Error codes surfaced by the Twitter API.
  *  @see https://dev.twitter.com/docs/error-codes-responses
  */
 typedef NS_ENUM(NSUInteger, TWTRAPIErrorCode) {
@@ -72,17 +77,17 @@ typedef NS_ENUM(NSUInteger, TWTRAPIErrorCode) {
     TWTRAPIErrorCodeAlreadyFavorited = 139,
 
     /**
-     *  Corresponds with HTTP 403 — thrown when a user cannot follow another user due to some kind of limit.
+     *  Corresponds with HTTP 403 — returned when a user cannot follow another user due to some kind of limit.
      */
     TWTRAPIErrorCodeCannotFollowOverLimit = 161,
 
     /**
-     *  Corresponds with HTTP 403 — thrown when a Tweet cannot be viewed by the authenticating user, usually due to the tweet's author having protected their tweets.
+     *  Corresponds with HTTP 403 — returned when a Tweet cannot be viewed by the authenticating user, usually due to the Tweet's author having protected their Tweets.
      */
     TWTRAPIErrorCodeNotAuthorizedToSeeStatus = 179,
 
     /**
-     *  Corresponds with HTTP 403 — thrown when a tweet cannot be posted due to the user having no allowance remaining to post. Despite the text in the error message indicating that this error is only thrown when a daily limit is reached, this error will be thrown whenever a posting limitation has been reached. Posting allowances have roaming windows of time of unspecified duration.
+     *  Corresponds with HTTP 403 — returned when a Tweet cannot be posted due to the user having no allowance remaining to post. Despite the text in the error message indicating that this error is only returned when a daily limit is reached, this error will be returned whenever a posting limitation has been reached. Posting allowances have roaming windows of time of unspecified duration.
      */
     TWTRAPIErrorCodeOverDailyStatusUpdateLimit = 185,
 
@@ -107,12 +112,17 @@ typedef NS_ENUM(NSUInteger, TWTRAPIErrorCode) {
     TWTRAPIErrorCodeUserMustVerifyLogin = 231,
 
     /**
+     *  "Bad guest token." The token has probably expired. Try calling `-[Twitter logInGuestWithCompletion:]` again later.
+     */
+    TWTRAPIErrorCodeBadGuestToken = 239,
+
+    /**
      *  Corresponds to a HTTP request to a retired URL.
      */
     TWTRAPIErrorCodeEndpointRetired = 251,
 
     /**
-     *  Corresponds with HTTP 403 — thrown when the application is restricted from POST, PUT, or DELETE actions. See [How to appeal application suspension and other disciplinary actions](https://support.twitter.com/articles/72585).
+     *  Corresponds with HTTP 403 — returned when the application is restricted from POST, PUT, or DELETE actions. See [How to appeal application suspension and other disciplinary actions](https://support.twitter.com/articles/72585).
      */
     TWTRAPIErrorCodeApplicationCannotPerformWriteAction = 261,
 
@@ -125,6 +135,11 @@ typedef NS_ENUM(NSUInteger, TWTRAPIErrorCode) {
      *  Corresponds with HTTP 403. The authenticated user account is not muting the account a call is attempting to unmute.
      */
     TWTRAPIErrorCodeCannotMuteSpecifiedUser = 272,
+
+    /**
+     *  You have already retweeted this tweet.
+     */
+    TWTRAPIErrorCodeAlreadyRetweeted = 327,
 
     /**
      *  Returned in API v1.1 when a request cannot be served due to the application's rate limit having been exhausted for the resource. See [Rate Limiting in API v1.1](https://dev.twitter.com/docs/rate-limiting/1.1).

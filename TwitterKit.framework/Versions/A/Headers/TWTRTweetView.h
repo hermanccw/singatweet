@@ -8,88 +8,94 @@
 #import "TWTRTweetViewDelegate.h"
 
 @class TWTRTweet;
-@class TWTRTweetTheme;
 
 /**
- *  The style for tweet views.
+ *  The style for Tweet views.
  */
 typedef NS_ENUM(NSUInteger, TWTRTweetViewStyle) {
     /**
-     *  A full-size tweet view showing images as well.
+     *  A full-size Tweet view. Displays images if present.
      */
     TWTRTweetViewStyleRegular,
     /**
-     *  A small tweet view showing no images, primarily designed
-     *  to be placed inside table views.
+     *  A small Tweet view, primarily designed to be used in table views.
      */
     TWTRTweetViewStyleCompact
 };
 
 /**
- `TWTRTweetView` displays a single tweet to the user. It handles background taps and other actions displayed to the user.
+ *  A default combination of colors for Tweet views.
+ */
+typedef NS_ENUM(NSUInteger, TWTRTweetViewTheme) {
+    /**
+     *  Official light theme.
+     */
+    TWTRTweetViewThemeLight,
+    /**
+     *  Official dark theme.
+     */
+    TWTRTweetViewThemeDark,
+};
+
+/**
+ `TWTRTweetView` displays a single Tweet to the user. It handles background taps and other actions displayed to the user.
  
     [[[Twitter sharedInstance] APIClient] loadTweetWithID:@"20" completion:^(TWTRTweet *tweet, NSError *error) {
         if (tweet) {
             TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet];
             [self.view addSubview:tweetView];
         } else {
-            NSLog(@"Error loading tweet: %@", [error localizedDescription]);
+            NSLog(@"Error loading Tweet: %@", [error localizedDescription]);
         }
     }];
 
  ## Interaction
  
- To allow the tweet view to present new views to the user, the `delegate` property must be set. Generally this will be set to `self` inside the `UIViewController` subclass which implements the TWTRTweetViewDelegate protocol.
- 
-    - (UIViewController *)viewControllerForPresentation {
-        return self;
-    }
+ The `TWTRTweetViewDelegate` is notified:
+
+   - When the background is tapped.
+   - When a link is selected.
+   - When the share button is tapped.
+   - When the share action completes.
  
  ## Usage in UITableView
  
- To allow for usage in `UITableView`s, the `configureWithTweet:` method allows configuration of an existing `TWTRTweetView` without having to create a new instance.
+ To allow for usage in a `UITableView`, the `configureWithTweet:` method allows configuration of an existing `TWTRTweetView` without having to create a new instance.
  
  ## Sizing
  
- When using autolayout, feel free to set a width or margin on the tweet view. The height will be calculated automatically. For old-fashioned frame based layout you may use the standard `sizeThatFits:` method to calculate the appropriate height for a given width:
+ When using Auto Layout, feel free to set a width or margin on the Tweet view. The height will be calculated automatically. For old-fashioned frame based layout you may use the standard `sizeThatFits:` method to calculate the appropriate height for a given width:
  
     // Find the height for a given width (20pts on either side)
-    CGFloat desiredSize = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 40, CGFLOAT_MAX);
+    CGFloat desiredHeight = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 40, CGFLOAT_MAX)].height;
  
  ## UIAppearance
  
- You may use UIAppearance proxy objects to style certain aspects of tweet views (or whole themes) before those views are added to the view hierarchy.
+ You may use UIAppearance proxy objects to style certain aspects of Tweet views before those views are added to the view hierarchy.
  
      // Using UIAppearance Proxy
-     [TWTRTweetView appearance].theme = [TWTRTweetTheme darkTheme];
+     [TWTRTweetView appearance].theme = TWTRTweetViewThemeDark;
  
-     // Setting theme directly
-     TWTRTweetTheme *blueYellowTheme = [TWTRTweetTheme lightTheme];
-     blueYellowTheme.primaryTextColor = [UIColor yellowColor];
-     blueYellowTheme.backgroundColor = [UIColor blueColor];
-     [TWTRTweetView appearance].theme = blueYellowTheme;
+     // Setting colors directly
+     [TWTRTweetView appearance].primaryTextColor = [UIColor yellowColor];
+     [TWTRTweetView appearance].backgroundColor = [UIColor blueColor];
  
  _Note:_ You can't change the theme through an appearance proxy after the view has already been added to the view hierarchy. Direct `theme` property access will work though.
  */
 @interface TWTRTweetView : UIView <UIAppearanceContainer>
 
 /**
- *  Background color of the tweet view and all text labels (fullname, username, tweet text, timestamp).
+ *  Background color of the Tweet view and all text labels (fullname, username, Tweet text, timestamp).
  */
 @property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 
 /**
- *  Color of tweet text and full name.
+ *  Color of Tweet text and full name.
  */
 @property (nonatomic, strong) UIColor *primaryTextColor UI_APPEARANCE_SELECTOR;
 
 /**
- *  Color of tweet username and timestamp colors.
- */
-@property (nonatomic, strong) UIColor *secondaryTextColor UI_APPEARANCE_SELECTOR;
-
-/**
- *  Color of links in tweet text.
+ *  Color of links in Tweet text.
  */
 @property (nonatomic, strong) UIColor *linkTextColor UI_APPEARANCE_SELECTOR;
 
@@ -99,45 +105,67 @@ typedef NS_ENUM(NSUInteger, TWTRTweetViewStyle) {
 @property (nonatomic, assign) BOOL showBorder UI_APPEARANCE_SELECTOR;
 
 /**
- *  Theme of this tweet.
+ *  Setting the theme of the Tweet view will change the color properties accordingly.
  *
- *  Set to [TWTRTweetTheme lightTheme] by default.
+ *  Set to `TWTRTweetViewThemeLight` by default.
  */
-@property (nonatomic, strong) TWTRTweetTheme *theme UI_APPEARANCE_SELECTOR;
+@property (nonatomic, assign) TWTRTweetViewTheme theme UI_APPEARANCE_SELECTOR;
 
 /**
- *  The style of the tweet. i.e. TWTRTweetViewStyleRegular or TWTRTweetViewStyleCompact.
+ *  The style of the Tweet. i.e. `TWTRTweetViewStyleRegular` or `TWTRTweetViewStyleCompact`.
  */
-@property (nonatomic, assign) TWTRTweetViewStyle style;
+@property (nonatomic, assign, readonly) TWTRTweetViewStyle style;
 
 /**
- *  The optional delegate to allow presenting a webview with tweet details.
+ *  The optional delegate to allow presenting a webview with Tweet details.
  */
 @property (nonatomic, weak) IBOutlet id<TWTRTweetViewDelegate> delegate;
 
 /**
- *  Convenience initializer to configure a compact style tweet view.
+ *  Convenience initializer to configure a compact style Tweet view.
  *
- *  @param tweet The tweet to display.
+ *  @param tweet The Tweet to display.
  *
- *  @return The fully-configured tweet view.
+ *  @return The fully-configured Tweet view.
  */
 - (instancetype)initWithTweet:(TWTRTweet *)tweet;
 
 /**
- *  Designated initializer. Initializes view with both tweet and style.
+ *  Designated initializer. Initializes view with both Tweet and style.
  *
- *  @param tweet The tweet to display.
- *  @param style The style of tweetview (regular or compact).
+ *  @param tweet The Tweet to display.
+ *  @param style The style of the Tweet view (regular or compact).
  *
- *  @return The fully configured tweet view.
+ *  @return The fully configured Tweet view.
  */
 - (instancetype)initWithTweet:(TWTRTweet *)tweet style:(TWTRTweetViewStyle)style;
 
 /**
- *  Update all images and label text to fully represent the given tweet.
+ * Initialization with a frame parameter is not supported.
+ */
+- (instancetype)initWithFrame:(CGRect)frame __attribute__((unavailable("Use -initWithTweet: instead")));
+
+/**
+  Find the size that fits into a desired space. This is a system method on UIView but implemented on `TWTRTweetView`
+ 
+    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet];
+ 
+    // Make it 280 points wide
+    CGSize desiredSize = [tweetView sizeThatFits:CGSizeMake(280, CGFLOAT_MAX)];
+    tweetView.frame = CGRectMake(PADDING_X, PADDING_Y, 280, desiredSize.height);
+ 
+    [self.view addSubview:tweetView];
+ 
+   @param size The space available. Should generally leave one orientation unconstrained, and the minimum width supported is 200pts.
+ 
+   @return The size that will fit into the space available.
+ */
+- (CGSize)sizeThatFits:(CGSize)size;
+
+/**
+ *  Update all images and label text to fully represent the given Tweet.
  *
- *  @param tweet The tweet to display.
+ *  @param tweet The Tweet to display.
  */
 - (void)configureWithTweet:(TWTRTweet *)tweet;
 

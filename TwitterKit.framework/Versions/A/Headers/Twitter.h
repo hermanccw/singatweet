@@ -9,7 +9,8 @@
 #import "TWTRSession.h"
 
 /**
- *  The central class of the Twitter kit.
+ *  The central class of the Twitter Kit.
+ *  @note This class can only be used from the main thread.
  */
 @interface Twitter : NSObject
 
@@ -21,7 +22,7 @@
 + (Twitter *)sharedInstance;
 
 /**
- *  Initialize Twitter with your consumer key and secret. These will override any credentials
+ *  Start Twitter with your consumer key and secret. These will override any credentials
  *  present in your applications Info.plist.
  *
  *  You do not need to call this method unless you wish to provide credentials other than those
@@ -29,10 +30,8 @@
  *
  *  @param consumerKey    Your Twitter application's consumer key.
  *  @param consumerSecret Your Twitter application's consumer secret.
- *
- *  @return The shared Twitter object.
  */
-- (instancetype)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret;
+- (void)startWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret;
 
 /**
  *  Client for consuming the Twitter REST API.
@@ -51,13 +50,20 @@
 
 /**
  *  The Twitter application consumer key.
+ *  @deprecated This property is deprecated and will be removed in a later release. Please use `authConfig`.
  */
-@property (nonatomic, copy, readonly) NSString *consumerKey;
+@property (nonatomic, copy, readonly) NSString *consumerKey __attribute__((deprecated("Use `authConfig`. This property will be removed in a later release.")));
 
 /**
  *  The Twitter application consumer secret.
+ *  @deprecated This property is deprecated and will be removed in a later release. Please use `authConfig`.
  */
-@property (nonatomic, copy, readonly) NSString *consumerSecret;
+@property (nonatomic, copy, readonly) NSString *consumerSecret __attribute__((deprecated("Use `authConfig`. This property will be removed in a later release.")));
+
+/**
+ *  Authentication configuration details. Encapsulates the `consumerKey` and `consumerSecret` credentials required to authenticate a Twitter application.
+ */
+@property (nonatomic, strong, readonly) TWTRAuthConfig *authConfig;
 
 /**
  *  @name Authentication
@@ -71,7 +77,7 @@
  *  @param completion The completion block will be called after authentication is successful or if there is an error.
  *  @warning This method requires that you have set up your `consumerKey` and `consumerSecret`.
  */
-- (void)logInWithCompletion:(TWTRLoginCompletion)completion;
+- (void)logInWithCompletion:(TWTRLogInCompletion)completion;
 
 /**
  *  Triggers user authentication with Twitter. Allows the developer to specify the presenting view controller.
@@ -82,7 +88,7 @@
  *  @param completion The completion block will be called after authentication is successful or if there is an error.
  *  @warning This method requires that you have set up your `consumerKey` and `consumerSecret`.
  */
-- (void)logInWithViewController:(UIViewController*)viewController completion:(TWTRLoginCompletion)completion;
+- (void)logInWithViewController:(UIViewController *)viewController completion:(TWTRLogInCompletion)completion;
 
 /**
  *  Log in a guest user. This can be used when the user is not a Twitter user.
@@ -92,7 +98,7 @@
  *  @param completion The completion block will be called after authentication is successful or if there is an error.
  *  @warning This method requires that you have set up your `consumerKey` and `consumerSecret`.
  */
-- (void)logInGuestWithCompletion:(TWTRGuestLoginCompletion)completion;
+- (void)logInGuestWithCompletion:(TWTRGuestLogInCompletion)completion;
 
 /**
  *  Returns the current user session or nil if there is no logged in user.
@@ -109,13 +115,13 @@
 - (TWTRGuestSession *)guestSession;
 
 /**
- *  Logs out and clears the user session.
+ *  Deletes the local Twitter user session from this app. This will not remove the system Twitter account nor make a network request to invalidate the session.
  */
-- (void)logout;
+- (void)logOut;
 
 /**
- *  Logs out and clears the guest session.
+ *  Deletes the local guest session. Does not make a network request to invalidate the session.
  */
-- (void)logoutGuest;
+- (void)logOutGuest;
 
 @end

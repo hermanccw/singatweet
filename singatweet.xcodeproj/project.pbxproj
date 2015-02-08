@@ -12,6 +12,7 @@
 		8B202EA71A86DEED0096D2DB /* STListTweetWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EA61A86DEED0096D2DB /* STListTweetWireframe.m */; };
 		8B202EAB1A86DF7A0096D2DB /* STRootViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EAA1A86DF7A0096D2DB /* STRootViewWireframe.m */; };
 		8B202EAE1A86E1640096D2DB /* STAppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EAD1A86E1640096D2DB /* STAppDependencies.m */; };
+		8B202EB11A870D590096D2DB /* STTwitterViewDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EB01A870D590096D2DB /* STTwitterViewDelegateHandler.m */; };
 		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
@@ -55,6 +56,8 @@
 		8B202EAA1A86DF7A0096D2DB /* STRootViewWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootViewWireframe.m; sourceTree = "<group>"; };
 		8B202EAC1A86E1640096D2DB /* STAppDependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAppDependencies.h; sourceTree = "<group>"; };
 		8B202EAD1A86E1640096D2DB /* STAppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAppDependencies.m; sourceTree = "<group>"; };
+		8B202EAF1A870D590096D2DB /* STTwitterViewDelegateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterViewDelegateHandler.h; sourceTree = "<group>"; };
+		8B202EB01A870D590096D2DB /* STTwitterViewDelegateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterViewDelegateHandler.m; sourceTree = "<group>"; };
 		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				8B8A46DE1A84624100A8BA8B /* STListTweetViewController.h */,
 				8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */,
 				8B8A46E11A8462D200A8BA8B /* STListTweetViewInterface.h */,
+				8B202EAF1A870D590096D2DB /* STTwitterViewDelegateHandler.h */,
+				8B202EB01A870D590096D2DB /* STTwitterViewDelegateHandler.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 			files = (
 				8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */,
 				8B202EAE1A86E1640096D2DB /* STAppDependencies.m in Sources */,
+				8B202EB11A870D590096D2DB /* STTwitterViewDelegateHandler.m in Sources */,
 				8B202EA11A86CF220096D2DB /* STListTweetInteractor.m in Sources */,
 				8B202EA41A86D5170096D2DB /* STListTweetPresenter.m in Sources */,
 				8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */,

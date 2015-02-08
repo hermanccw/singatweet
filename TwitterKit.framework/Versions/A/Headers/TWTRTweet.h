@@ -53,14 +53,24 @@
 @property (nonatomic, copy, readonly) NSString *inReplyToTweetID;
 
 /**
- *  The User this Tweet was a reply to.
+ *  The User ID this Tweet was a reply to.
  */
 @property (nonatomic, copy, readonly) NSString *inReplyToUserID;
 
 /**
  *  The screen name of the user this Tweet was a reply to.
+ *  @note This doesn't contain the `@` sign before the screen name.
  */
 @property (nonatomic, copy, readonly) NSString *inReplyToScreenName;
+
+/**
+ *  The permalink URL for this Tweet.
+ *
+ *  Suitable for loading in a `UIWebView`, `WKWebView` or passing to Safari:
+ *
+ *  `[[UIApplication sharedApplication] openURL:tweet.permalink];`
+ */
+@property (nonatomic, copy, readonly) NSURL *permalink;
 
 /**
  *  Whether this Tweet was favorited by the authenticated user.
@@ -77,7 +87,7 @@
 @property (nonatomic, assign, readonly) BOOL isRetweeted;
 
 /**
- *  The ID of the authenticated user's retweet of this Tweet.
+ *  The retweet ID of the authenticated user's retweet of this Tweet.
  *
  *  @warning The value of this property depends on the authenticated user.
  */

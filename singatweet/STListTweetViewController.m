@@ -8,12 +8,14 @@
 
 #import "STListTweetViewController.h"
 #import <TwitterKit/TwitterKit.h>
+#import "STTwitterViewDelegateHandler.h"
 
 static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 
 @interface STListTweetViewController()
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) TWTRTweetTableViewCell *prototypeCell;
+@property (nonatomic, strong) STTwitterViewDelegateHandler *twitterViewHandler;
 @end
 
 @implementation STListTweetViewController
@@ -56,7 +58,7 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     TWTRTweet *tweet = self.tweets[indexPath.row];
     [self.prototypeCell configureWithTweet:tweet];
-    return [self.prototypeCell calculatedHeightForWidth:CGRectGetWidth(self.view.bounds)];
+    return [TWTRTweetTableViewCell heightForTweet:tweet width:CGRectGetWidth(self.view.bounds)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,9 +67,12 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     TWTRTweetTableViewCell *cell = (TWTRTweetTableViewCell *) [tableView dequeueReusableCellWithIdentifier:TweetTableReuseIdentifier
                                                                                                    forIndexPath:indexPath];
     [cell configureWithTweet:tweet];
-//    cell.tweetView.delegate = self;
-    
+    cell.tweetView.delegate = self.twitterViewHandler;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did selected");
 }
 
 #pragma mark - Private
@@ -82,4 +87,14 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     // Create a single prototype cell for height calculations
     self.prototypeCell = [[TWTRTweetTableViewCell alloc] init];
 }
+
+#pragma mark - lazy props
+- (STTwitterViewDelegateHandler*) twitterViewHandler {
+    if (!_twitterViewHandler) {
+        _twitterViewHandler = [[STTwitterViewDelegateHandler alloc] initWithController:self];
+    }
+    return _twitterViewHandler;
+}
+
+
 @end
