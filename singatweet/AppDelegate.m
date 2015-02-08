@@ -10,17 +10,24 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import <Crashlytics/Crashlytics.h>
+#import "STAppDependencies.h"
 
 
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) STAppDependencies *dependencies;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    self.dependencies = [[STAppDependencies alloc] init];
+    
+    [self.dependencies installRootViewControllerIntoWindow:self.window];
+    
     // Override point for customization after application launch.
     [Fabric with:@[TwitterKit, CrashlyticsKit]];
 

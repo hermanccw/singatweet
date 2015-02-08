@@ -8,7 +8,7 @@
 
 @protocol STListTweetViewInterface <NSObject>
 
-- (void) showDisplayTweets:(NSData*)data;
+- (void) showDisplayTweets:(NSArray*)tweets;
 - (void) reloadEntries;
 
 @end

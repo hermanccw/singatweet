@@ -13,5 +13,5 @@
 
 @interface STListTweetViewController : UITableViewController<STListTweetViewInterface>
 
-
+@property (nonatomic, strong) id<STListModuleInteface> eventHandler;
 @end

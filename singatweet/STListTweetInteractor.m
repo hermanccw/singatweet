@@ -7,6 +7,8 @@
 //
 
 #import "STListTweetInteractor.h"
+#import "EXTScope.h"
+
 @interface STListTweetInteractor()
 @property (nonatomic, strong) STListTweetDataManager *dataManager;
 @end
@@ -23,7 +25,9 @@
 }
 
 - (void)findPopularTweets {
+    @weakify(self)
     [self.dataManager popularTweets:^(NSArray *tweets) {
+        @strongify(self)
         [self.output foundPopularTweets:tweets];
     }];
 }
