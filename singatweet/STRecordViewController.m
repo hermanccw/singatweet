@@ -213,4 +213,9 @@
     self.countDownLabel.text = result;
 }
 
+#pragma mark - STRecordViewInterface
+- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet {
+    
+}
+
 @end

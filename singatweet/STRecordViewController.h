@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "STRecordingTweetView.h"
+#import "STRecordViewInterface.h"
+#import "STRecordModuleInterface.h"
 
-@interface STRecordViewController : UIViewController
+@interface STRecordViewController : UIViewController<STRecordViewInterface>
 
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 @property (nonatomic, weak) IBOutlet STRecordingTweetView *tweetView;
 @property (nonatomic, weak) IBOutlet UILabel *countDownLabel;
+
+@property (nonatomic, strong) id<STRecordModuleInterface> eventHandler;
 @end
 

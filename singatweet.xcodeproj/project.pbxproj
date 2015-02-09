@@ -13,9 +13,13 @@
 		8B202EAB1A86DF7A0096D2DB /* STRootViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EAA1A86DF7A0096D2DB /* STRootViewWireframe.m */; };
 		8B202EAE1A86E1640096D2DB /* STAppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EAD1A86E1640096D2DB /* STAppDependencies.m */; };
 		8B202EB11A870D590096D2DB /* STTwitterViewDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B202EB01A870D590096D2DB /* STTwitterViewDelegateHandler.m */; };
+		8B2FE3A61A883B950063C1E2 /* STRecordPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE3A51A883B950063C1E2 /* STRecordPresenter.m */; };
+		8B2FE3A91A883BBE0063C1E2 /* STRecordWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE3A81A883BBE0063C1E2 /* STRecordWireframe.m */; };
+		8B2FE3AB1A8843100063C1E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2FE3AA1A8843100063C1E2 /* CoreData.framework */; };
 		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
+		8B852CFE1A88186400B40722 /* STRecordInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852CFD1A88186400B40722 /* STRecordInteractor.m */; };
 		8B8A46E01A84624100A8BA8B /* STListTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */; };
 		8B8A46E41A8465F000A8BA8B /* STListTweetDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A46E31A8465F000A8BA8B /* STListTweetDataManager.m */; };
 		8B9E08281A68B6EF0041FCC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08271A68B6EF0041FCC2 /* main.m */; };
@@ -58,11 +62,20 @@
 		8B202EAD1A86E1640096D2DB /* STAppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAppDependencies.m; sourceTree = "<group>"; };
 		8B202EAF1A870D590096D2DB /* STTwitterViewDelegateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterViewDelegateHandler.h; sourceTree = "<group>"; };
 		8B202EB01A870D590096D2DB /* STTwitterViewDelegateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterViewDelegateHandler.m; sourceTree = "<group>"; };
+		8B2FE3A41A883B950063C1E2 /* STRecordPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordPresenter.h; sourceTree = "<group>"; };
+		8B2FE3A51A883B950063C1E2 /* STRecordPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordPresenter.m; sourceTree = "<group>"; };
+		8B2FE3A71A883BBE0063C1E2 /* STRecordWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordWireframe.h; sourceTree = "<group>"; };
+		8B2FE3A81A883BBE0063C1E2 /* STRecordWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordWireframe.m; sourceTree = "<group>"; };
+		8B2FE3AA1A8843100063C1E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8B41DF641A88500700F5C7A0 /* STRecordViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordViewInterface.h; sourceTree = "<group>"; };
 		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
 		8B6148B11A767BBC0083CF7D /* STRecordingTweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordingTweetView.h; sourceTree = "<group>"; };
 		8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordingTweetView.m; sourceTree = "<group>"; };
+		8B852CFB1A88170900B40722 /* STRecordModuleInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STRecordModuleInterface.h; sourceTree = "<group>"; };
+		8B852CFC1A88186400B40722 /* STRecordInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordInteractor.h; sourceTree = "<group>"; };
+		8B852CFD1A88186400B40722 /* STRecordInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordInteractor.m; sourceTree = "<group>"; };
 		8B8A46DD1A84609D00A8BA8B /* STListModuleInteface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STListModuleInteface.h; sourceTree = "<group>"; };
 		8B8A46DE1A84624100A8BA8B /* STListTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STListTweetViewController.h; sourceTree = "<group>"; };
 		8B8A46DF1A84624100A8BA8B /* STListTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STListTweetViewController.m; sourceTree = "<group>"; };
@@ -93,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2FE3AB1A8843100063C1E2 /* CoreData.framework in Frameworks */,
 				F703042E819041E28C3B1941 /* libPods.a in Frameworks */,
 				8BDF90EC1A78AC090017A846 /* TwitterKit.framework in Frameworks */,
 				8BFA73361A78AF5D0033D6AC /* Crashlytics.framework in Frameworks */,
@@ -119,9 +133,75 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		8B2FE3A11A883B4F0063C1E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E082C1A68B6EF0041FCC2 /* STRecordViewController.h */,
+				8B9E082D1A68B6EF0041FCC2 /* STRecordViewController.m */,
+				8B41DF641A88500700F5C7A0 /* STRecordViewInterface.h */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8B2FE3A21A883B5D0063C1E2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8B2FE3A41A883B950063C1E2 /* STRecordPresenter.h */,
+				8B2FE3A51A883B950063C1E2 /* STRecordPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		8B2FE3A31A883B650063C1E2 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				8B2FE3A71A883BBE0063C1E2 /* STRecordWireframe.h */,
+				8B2FE3A81A883BBE0063C1E2 /* STRecordWireframe.m */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		8B852CF71A8816C000B40722 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				8B852CF81A8816CB00B40722 /* Module Interface */,
+				8B852CF91A8816D800B40722 /* Application Logic */,
+				8B852CFA1A8816E600B40722 /* User Interface */,
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
+		8B852CF81A8816CB00B40722 /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8B852CFB1A88170900B40722 /* STRecordModuleInterface.h */,
+			);
+			name = "Module Interface";
+			sourceTree = "<group>";
+		};
+		8B852CF91A8816D800B40722 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8B852CFC1A88186400B40722 /* STRecordInteractor.h */,
+				8B852CFD1A88186400B40722 /* STRecordInteractor.m */,
+			);
+			name = "Application Logic";
+			sourceTree = "<group>";
+		};
+		8B852CFA1A8816E600B40722 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8B2FE3A31A883B650063C1E2 /* Wireframe */,
+				8B2FE3A11A883B4F0063C1E2 /* View */,
+				8B2FE3A21A883B5D0063C1E2 /* Presenter */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
 		8B8A46D31A845E7F00A8BA8B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8B852CF71A8816C000B40722 /* Record */,
 				8B8A46D41A845EA500A8BA8B /* List */,
 			);
 			name = Modules;
@@ -259,8 +339,6 @@
 				8B9E082A1A68B6EF0041FCC2 /* AppDelegate.m */,
 				8B202EAC1A86E1640096D2DB /* STAppDependencies.h */,
 				8B202EAD1A86E1640096D2DB /* STAppDependencies.m */,
-				8B9E082C1A68B6EF0041FCC2 /* STRecordViewController.h */,
-				8B9E082D1A68B6EF0041FCC2 /* STRecordViewController.m */,
 				8B9E082F1A68B6EF0041FCC2 /* Main.storyboard */,
 				8B9E08321A68B6EF0041FCC2 /* Images.xcassets */,
 				8B9E08341A68B6EF0041FCC2 /* LaunchScreen.xib */,
@@ -302,6 +380,7 @@
 		E7E84A8DBEF147E2BCEC45A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B2FE3AA1A8843100063C1E2 /* CoreData.framework */,
 				8BFA73351A78AF5D0033D6AC /* Crashlytics.framework */,
 				8BDF90E91A78AC090017A846 /* TwitterKit.framework */,
 				8BDF90EA1A78AC090017A846 /* TwitterKitResources.bundle */,
@@ -465,8 +544,10 @@
 				8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */,
 				8B202EAE1A86E1640096D2DB /* STAppDependencies.m in Sources */,
 				8B202EB11A870D590096D2DB /* STTwitterViewDelegateHandler.m in Sources */,
+				8B2FE3A61A883B950063C1E2 /* STRecordPresenter.m in Sources */,
 				8B202EA11A86CF220096D2DB /* STListTweetInteractor.m in Sources */,
 				8B202EA41A86D5170096D2DB /* STListTweetPresenter.m in Sources */,
+				8B2FE3A91A883BBE0063C1E2 /* STRecordWireframe.m in Sources */,
 				8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */,
 				8B8A46E41A8465F000A8BA8B /* STListTweetDataManager.m in Sources */,
 				8B9E082E1A68B6EF0041FCC2 /* STRecordViewController.m in Sources */,
@@ -474,6 +555,7 @@
 				8B202EAB1A86DF7A0096D2DB /* STRootViewWireframe.m in Sources */,
 				8B202EA71A86DEED0096D2DB /* STListTweetWireframe.m in Sources */,
 				8B9E08281A68B6EF0041FCC2 /* main.m in Sources */,
+				8B852CFE1A88186400B40722 /* STRecordInteractor.m in Sources */,
 				8B8A46E01A84624100A8BA8B /* STListTweetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
