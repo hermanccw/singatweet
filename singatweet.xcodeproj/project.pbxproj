@@ -16,6 +16,8 @@
 		8B2FE3A61A883B950063C1E2 /* STRecordPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE3A51A883B950063C1E2 /* STRecordPresenter.m */; };
 		8B2FE3A91A883BBE0063C1E2 /* STRecordWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE3A81A883BBE0063C1E2 /* STRecordWireframe.m */; };
 		8B2FE3AB1A8843100063C1E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2FE3AA1A8843100063C1E2 /* CoreData.framework */; };
+		8B41DF691A89243200F5C7A0 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B41DF671A89243200F5C7A0 /* TwitterKit.framework */; };
+		8B41DF6A1A89243200F5C7A0 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B41DF681A89243200F5C7A0 /* TwitterKitResources.bundle */; };
 		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
@@ -29,8 +31,6 @@
 		8B9E08331A68B6EF0041FCC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E08321A68B6EF0041FCC2 /* Images.xcassets */; };
 		8B9E08361A68B6EF0041FCC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E08341A68B6EF0041FCC2 /* LaunchScreen.xib */; };
 		8B9E08421A68B6EF0041FCC2 /* singatweetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E08411A68B6EF0041FCC2 /* singatweetTests.m */; };
-		8BDF90EC1A78AC090017A846 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDF90E91A78AC090017A846 /* TwitterKit.framework */; };
-		8BDF90ED1A78AC090017A846 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF90EA1A78AC090017A846 /* TwitterKitResources.bundle */; };
 		8BDF90EE1A78AC090017A846 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDF90EB1A78AC090017A846 /* Fabric.framework */; };
 		8BFA73361A78AF5D0033D6AC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFA73351A78AF5D0033D6AC /* Crashlytics.framework */; };
 		F703042E819041E28C3B1941 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89255BCE403D4203A037031A /* libPods.a */; };
@@ -68,6 +68,8 @@
 		8B2FE3A81A883BBE0063C1E2 /* STRecordWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRecordWireframe.m; sourceTree = "<group>"; };
 		8B2FE3AA1A8843100063C1E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8B41DF641A88500700F5C7A0 /* STRecordViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordViewInterface.h; sourceTree = "<group>"; };
+		8B41DF671A89243200F5C7A0 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		8B41DF681A89243200F5C7A0 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
@@ -95,8 +97,6 @@
 		8B9E083B1A68B6EF0041FCC2 /* singatweetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = singatweetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E08401A68B6EF0041FCC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E08411A68B6EF0041FCC2 /* singatweetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = singatweetTests.m; sourceTree = "<group>"; };
-		8BDF90E91A78AC090017A846 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		8BDF90EA1A78AC090017A846 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		8BDF90EB1A78AC090017A846 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8BFA73351A78AF5D0033D6AC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +107,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2FE3AB1A8843100063C1E2 /* CoreData.framework in Frameworks */,
+				8B41DF691A89243200F5C7A0 /* TwitterKit.framework in Frameworks */,
 				F703042E819041E28C3B1941 /* libPods.a in Frameworks */,
-				8BDF90EC1A78AC090017A846 /* TwitterKit.framework in Frameworks */,
 				8BFA73361A78AF5D0033D6AC /* Crashlytics.framework in Frameworks */,
 				8BDF90EE1A78AC090017A846 /* Fabric.framework in Frameworks */,
 			);
@@ -380,10 +380,10 @@
 		E7E84A8DBEF147E2BCEC45A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B41DF671A89243200F5C7A0 /* TwitterKit.framework */,
+				8B41DF681A89243200F5C7A0 /* TwitterKitResources.bundle */,
 				8B2FE3AA1A8843100063C1E2 /* CoreData.framework */,
 				8BFA73351A78AF5D0033D6AC /* Crashlytics.framework */,
-				8BDF90E91A78AC090017A846 /* TwitterKit.framework */,
-				8BDF90EA1A78AC090017A846 /* TwitterKitResources.bundle */,
 				8BDF90EB1A78AC090017A846 /* Fabric.framework */,
 				89255BCE403D4203A037031A /* libPods.a */,
 			);
@@ -474,10 +474,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4609E21A7EF28500F2231B /* tick.wav in Resources */,
-				8BDF90ED1A78AC090017A846 /* TwitterKitResources.bundle in Resources */,
 				8B9E08311A68B6EF0041FCC2 /* Main.storyboard in Resources */,
 				8B9E08361A68B6EF0041FCC2 /* LaunchScreen.xib in Resources */,
 				8B9E08331A68B6EF0041FCC2 /* Images.xcassets in Resources */,
+				8B41DF6A1A89243200F5C7A0 /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
