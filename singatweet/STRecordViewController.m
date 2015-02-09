@@ -10,7 +10,7 @@
 #import "TheAmazingAudioEngine.h"
 #import "AERecorder.h"
 #import "TPOscilloscopeLayer.h"
-#import <TwitterKit/TwitterKit.h>
+//#import <TwitterKit/TwitterKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 
 
@@ -214,7 +214,7 @@
 }
 
 #pragma mark - STRecordViewInterface
-- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet {
+- (void)showUIWithReferenceTweet:(NSData *)tweet {
     
 }
 

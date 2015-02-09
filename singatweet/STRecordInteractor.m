@@ -25,7 +25,7 @@
  *  @param audioURL       audio url for sang tweet
  *  @param referenceTweet reference tweet for this audio
  */
-- (void)saveTweet:(TWTRTweet *)tweet withAudioURL:(NSString *)audioURL andReferenceTweet:(TWTRTweet *)referenceTweet {
+- (void)saveTweet:(NSData *)tweet withAudioURL:(NSString *)audioURL andReferenceTweet:(NSData *)referenceTweet {
     
 }
 

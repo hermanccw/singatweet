@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
+//#import <TwitterKit/TwitterKit.h>
 #import <Crashlytics/Crashlytics.h>
 #import "STAppDependencies.h"
 
@@ -29,7 +29,7 @@
     [self.dependencies installRootViewControllerIntoWindow:self.window];
     
     // Override point for customization after application launch.
-    [Fabric with:@[TwitterKit, CrashlyticsKit]];
+//    [Fabric with:@[TwitterKit, CrashlyticsKit]];
 
     return YES;
 }

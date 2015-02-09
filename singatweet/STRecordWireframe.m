@@ -19,7 +19,7 @@ static NSString *RecordViewController = @"STRecordViewController";
 
 @implementation STRecordWireframe
 
-- (void)presentRecordInterfaceFromViewController:(UIViewController *)viewController withTweet:(TWTRTweet*)tweet
+- (void)presentRecordInterfaceFromViewController:(UIViewController *)viewController withTweet:(NSData*)tweet
 {
     STRecordViewController *recordViewController = [self recordViewController];
     self.recordPresenter.referenceTweet = tweet;

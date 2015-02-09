@@ -22,12 +22,12 @@
     return self;
 }
 
-#pragma mark - TWTRTweetViewDelegate
+#pragma mark - NSDataViewDelegate
 
 
-- (void)tweetView:(TWTRTweetView *)tweetView didSelectTweet:(TWTRTweet *)tweet {
-    NSLog(@"here");
-}
+//- (void)tweetView:(NSDataView *)tweetView didSelectTweet:(NSData *)tweet {
+//    NSLog(@"here");
+//}
 
 
 

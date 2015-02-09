@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 ironark. All rights reserved.
 //
 
-#import <TwitterKit/TwitterKit.h>
+//#import <TwitterKit/TwitterKit.h>
 
 @protocol STRecordModuleInterface <NSObject>
 
-- (void) saveAudio:(NSData*)audio forTweet:(TWTRTweet*)referenceTweet;
+- (void) saveAudio:(NSData*)audio forTweet:(NSData*)referenceTweet;
 
-- (void) associatedNewTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL;
+- (void) associatedNewTweet:(NSData*)tweet withAudioURL:(NSString*)audioURL;
 
 - (void) cancelRecordAudioForTweet;
 @end
