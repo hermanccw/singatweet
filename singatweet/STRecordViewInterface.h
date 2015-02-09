@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TwitterKit.h>
 
 @protocol STRecordViewInterface <NSObject>
 
-- (void) showUIWithReferenceTweet:(NSData*)tweet;
+- (void) showUIWithReferenceTweet:(TWTRTweet*)tweet;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TwitterKit.h>
 @import UIKit;
 
 @class STRecordPresenter;
@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) STRecordPresenter *recordPresenter;
 
-- (void)presentRecordInterfaceFromViewController:(UIViewController *)viewController withTweet:(NSData*)tweet;
+- (void)presentRecordInterfaceFromViewController:(UIViewController *)viewController withTweet:(TWTRTweet*)tweet;
 - (void)dismissRecordInterface;
 
 @end

@@ -21,7 +21,7 @@
 
 @property (nonatomic, strong) STRecordInteractor *interactor;
 @property (nonatomic, strong) STRecordWireframe *wireframe;
-@property (nonatomic, strong) NSData *referenceTweet;
+@property (nonatomic, strong) TWTRTweet *referenceTweet;
 
 - (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface;
 @end

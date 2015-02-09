@@ -14,7 +14,7 @@
  *
  *  @param audio file to save up on to cloud
  */
-- (void)saveAudioFile:(NSData *)audio {
+- (void)saveAudioFile:(TWTRTweet *)audio {
     
 }
 
@@ -25,7 +25,7 @@
  *  @param audioURL       audio url for sang tweet
  *  @param referenceTweet reference tweet for this audio
  */
-- (void)saveTweet:(NSData *)tweet withAudioURL:(NSString *)audioURL andReferenceTweet:(NSData *)referenceTweet {
+- (void)saveTweet:(TWTRTweet *)tweet withAudioURL:(NSString *)audioURL andReferenceTweet:(TWTRTweet *)referenceTweet {
     
 }
 

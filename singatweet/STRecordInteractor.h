@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TwitterKit.h>
 
 @interface STRecordInteractor : NSObject
 - (void) saveAudioFile:(NSData*)audio;
-- (void) saveTweet:(NSData*)tweet withAudioURL:(NSString*)audioURL andReferenceTweet:(NSData*)referenceTweet;
+- (void) saveTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL andReferenceTweet:(TWTRTweet*)referenceTweet;
 
 @end

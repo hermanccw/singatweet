@@ -7,14 +7,14 @@
 //
 
 #import "STListTweetViewController.h"
-//#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TwitterKit.h>
 #import "STTwitterViewDelegateHandler.h"
 
 static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 
 @interface STListTweetViewController()
 @property (nonatomic, strong) NSArray *tweets;
-//@property (nonatomic, strong) NSDataTableViewCell *prototypeCell;
+@property (nonatomic, strong) TWTRTweetTableViewCell *prototypeCell;
 @property (nonatomic, strong) STTwitterViewDelegateHandler *twitterViewHandler;
 @end
 
@@ -55,21 +55,21 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 }
 
 // Calculate the height of each row
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSData *tweet = self.tweets[indexPath.row];
-//    [self.prototypeCell configureWithTweet:tweet];
-//    return [NSDataTableViewCell heightForTweet:tweet width:CGRectGetWidth(self.view.bounds)];
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TWTRTweet *tweet = self.tweets[indexPath.row];
+    [self.prototypeCell configureWithTweet:tweet];
+    return [TWTRTweetTableViewCell heightForTweet:tweet width:CGRectGetWidth(self.view.bounds)];
+}
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSData *tweet = self.tweets[indexPath.row];
-//    NSDataTableViewCell *cell = (NSDataTableViewCell *) [tableView dequeueReusableCellWithIdentifier:TweetTableReuseIdentifier
-//                                                                                                   forIndexPath:indexPath];
-//    [cell configureWithTweet:tweet];
-//    cell.tweetView.delegate = self.twitterViewHandler;
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TWTRTweet *tweet = self.tweets[indexPath.row];
+    TWTRTweetTableViewCell *cell = (TWTRTweetTableViewCell *) [tableView dequeueReusableCellWithIdentifier:TweetTableReuseIdentifier
+                                                                                                   forIndexPath:indexPath];
+    [cell configureWithTweet:tweet];
+    cell.tweetView.delegate = self.twitterViewHandler;
+    return cell;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"did selected");
@@ -77,15 +77,15 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 
 #pragma mark - Private
 - (void) configureView {
-//    self.tableView.estimatedRowHeight = 150;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    self.tableView.allowsSelection = NO;
-//    [self.tableView registerClass:
-//     [NSDataTableViewCell class]
-//           forCellReuseIdentifier:TweetTableReuseIdentifier];
-//    
-//    // Create a single prototype cell for height calculations
-//    self.prototypeCell = [[NSDataTableViewCell alloc] init];
+    self.tableView.estimatedRowHeight = 150;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.allowsSelection = NO;
+    [self.tableView registerClass:
+     [TWTRTweetTableViewCell class]
+           forCellReuseIdentifier:TweetTableReuseIdentifier];
+    
+    // Create a single prototype cell for height calculations
+    self.prototypeCell = [[TWTRTweetTableViewCell alloc] init];
 }
 
 #pragma mark - lazy props

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TwitterKit.h>
 #import "STListTweetViewController.h"
 
-@interface STTwitterViewDelegateHandler : NSObject//<NSDataViewDelegate>
+@interface STTwitterViewDelegateHandler : NSObject<TWTRTweetViewDelegate>
 - (instancetype) initWithController:(STListTweetViewController*)controller;
 @end
