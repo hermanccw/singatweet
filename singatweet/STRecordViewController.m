@@ -216,6 +216,16 @@
     self.tickCount = 3;
     self.recordTimeInMS = 5 * 1000;
     [self updateCountDownLabel:self.recordTimeInMS];
+    
+    
+    // cancel and submit
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                          target:self
+                                                                                          action:@selector(cancelPressed:)];
+}
+
+- (void) cancelPressed:(UIBarButtonItem *)sender {
+    [self.eventHandler cancelRecordAudioForTweet];
 }
 
 #pragma mark - STRecordViewInterface
