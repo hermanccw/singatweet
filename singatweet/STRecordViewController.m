@@ -39,25 +39,6 @@
     self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, self.headerView.frame.size.height);
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    
-//    NSLog(@"old contraint: %f", self.tweetViewHeightContaints.constant);
-//    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
-//    [self.tweetView addSubview:tweetView];
-//    
-//    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
-//    NSLog(@"size: %@", NSStringFromCGSize(size));
-//    if (size.height != self.tweetViewHeightContaints.constant) {
-//        self.tweetViewHeightContaints.constant = 300.0f;
-//        NSLog(@"new contraint: %f", self.tweetViewHeightContaints.constant);
-//        [self.view setNeedsUpdateConstraints];
-//        [UIView animateWithDuration:0.25f animations:^{
-//            [self.view layoutIfNeeded];
-//        }];
-//    }
-//}
-
 - (IBAction)recordPressed:(id)sender {
     if ( self.recorder ) {
         [self.recorder finishRecording];
@@ -241,16 +222,20 @@
                                                                                           target:self
                                                                                           action:@selector(cancelPressed:)];
     
-    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
-    [self.tweetViewContainer addSubview:tweetView];
-    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
-    if (size.height != self.tweetViewHeightContaints.constant) {
-        self.tweetViewHeightContaints.constant = size.height;
-        [self.view setNeedsUpdateConstraints];
-        [UIView animateWithDuration:0.25f animations:^{
-            [self.view layoutIfNeeded];
-        }];
-    }
+//    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
+//    [self.tweetViewContainer addSubview:tweetView];
+    [self.tweetViewContainer configureWithTweet:self.referenceTweet];
+    
+    
+    
+//    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
+//    if (size.height != self.tweetViewHeightContaints.constant) {
+//        self.tweetViewHeightContaints.constant = size.height;
+//        [self.view setNeedsUpdateConstraints];
+//        [UIView animateWithDuration:0.25f animations:^{
+//            [self.view layoutIfNeeded];
+//        }];
+//    }
 }
 
 - (void) cancelPressed:(UIBarButtonItem *)sender {
