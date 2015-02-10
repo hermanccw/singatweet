@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIView *headerView;
-@property (nonatomic, weak) IBOutlet STRecordingTweetView *tweetView;
+@property (nonatomic, weak) IBOutlet TWTRTweetView *tweetView;
 @property (nonatomic, weak) IBOutlet UILabel *countDownLabel;
 
 @property (nonatomic, strong) id<STRecordModuleInterface> eventHandler;

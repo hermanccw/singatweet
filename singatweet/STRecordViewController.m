@@ -30,36 +30,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.audioController = [[AEAudioController alloc]
-                            initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
-                            inputEnabled:YES];
-    //************************
-    // This is the crucial bit of code that was missing
-    NSError *error;
-    [self.audioController start:&error];
-    
-    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
-    self.inputOscilloscope.frame = CGRectZero;
-    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-    [self.headerView.layer addSublayer:self.inputOscilloscope];
-    [self.audioController addInputReceiver:self.inputOscilloscope];
-    [self.inputOscilloscope start];
-    self.tickCount = 3;
-    self.recordTimeInMS = 5 * 1000;
-    [self updateCountDownLabel:self.recordTimeInMS];
-//    self.headerView.layer.borderColor = [UIColor redColor].CGColor;
-//    self.headerView.layer.borderWidth = 1.0f;
+    [self setupAudioController];
+    [self configureView];
 }
 
 - (void)viewDidLayoutSubviews {
     // layout layer here; doesn't like autolayout
     self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, self.headerView.frame.size.height);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)recordPressed:(id)sender {
@@ -116,7 +93,6 @@
 - (void) tick {
     if (self.tickCount > 0) {
         [self playTickSound];
-        NSLog(@"TICK");
         self.tickCount = self.tickCount - 1;
         
         
@@ -212,6 +188,34 @@
                             (long)minutes,
                             (long)seconds,milliseconds%1000];
     self.countDownLabel.text = result;
+}
+
+#pragma mark - Private
+- (void) setupAudioController {
+    // Do any additional setup after loading the view, typically from a nib.
+    self.audioController = [[AEAudioController alloc]
+                            initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
+                            inputEnabled:YES];
+    NSError *error;
+    [self.audioController start:&error];
+}
+
+- (void) configureView {
+    self.title = NSLocalizedString(@"Sing it!", nil);
+    
+    // setup wave header
+    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
+    self.inputOscilloscope.frame = CGRectZero;
+    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    [self.headerView.layer addSublayer:self.inputOscilloscope];
+    [self.audioController addInputReceiver:self.inputOscilloscope];
+    [self.inputOscilloscope start];
+    [self.tweetView configureWithTweet:self.referenceTweet];
+   
+    // setup count down label
+    self.tickCount = 3;
+    self.recordTimeInMS = 5 * 1000;
+    [self updateCountDownLabel:self.recordTimeInMS];
 }
 
 #pragma mark - STRecordViewInterface

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpv-Sx-k93">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpv-Sx-k93">
                                 <rect key="frame" x="275" y="265" width="50" height="30"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                                     <action selector="recordPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tYX-Gh-BzL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-eR-g5I">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-eR-g5I">
                                 <rect key="frame" x="285" y="315" width="30" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,49 +44,16 @@
                                     <constraint firstAttribute="height" constant="100" id="Xor-BP-vpe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cId-Vv-SKu" customClass="STRecordingTweetView">
-                                <rect key="frame" x="26" y="130" width="548" height="86"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sdt-7K-WRB">
-                                        <rect key="frame" x="8" y="8" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="2ng-EF-npE"/>
-                                            <constraint firstAttribute="width" constant="70" id="BZv-Xu-Jnp"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Tweetman123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-rX-P8f">
-                                        <rect key="frame" x="86" y="8" width="121" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ain't no mountain high enough" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-RV-16O">
-                                        <rect key="frame" x="86" y="28" width="454" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cId-Vv-SKu" customClass="TWTRTweetView">
+                                <rect key="frame" x="26" y="130" width="548" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Sdt-7K-WRB" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="top" constant="8" id="6iY-cz-1Qy"/>
-                                    <constraint firstItem="DmT-rX-P8f" firstAttribute="leading" secondItem="Sdt-7K-WRB" secondAttribute="trailing" constant="8" id="EQq-g9-lGL"/>
-                                    <constraint firstAttribute="bottom" secondItem="Sdt-7K-WRB" secondAttribute="bottom" constant="8" id="IXD-gX-NdZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="B0J-RV-16O" secondAttribute="bottom" constant="8" id="NAI-e0-4Nu"/>
-                                    <constraint firstAttribute="trailing" secondItem="B0J-RV-16O" secondAttribute="trailing" constant="8" id="aIN-T5-mrL"/>
-                                    <constraint firstItem="B0J-RV-16O" firstAttribute="leading" secondItem="Sdt-7K-WRB" secondAttribute="trailing" constant="8" id="eBh-fY-3GT"/>
-                                    <constraint firstItem="B0J-RV-16O" firstAttribute="top" secondItem="DmT-rX-P8f" secondAttribute="bottom" id="kNi-37-MO2"/>
-                                    <constraint firstItem="Sdt-7K-WRB" firstAttribute="leading" secondItem="cId-Vv-SKu" secondAttribute="leading" constant="8" id="tud-gM-m7q"/>
-                                    <constraint firstItem="DmT-rX-P8f" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="top" constant="8" id="wiS-By-ezP"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="avatar" destination="Sdt-7K-WRB" id="I8a-dT-unX"/>
-                                    <outlet property="tweetText" destination="B0J-RV-16O" id="7OY-JS-zzU"/>
-                                    <outlet property="twitterHandle" destination="DmT-rX-P8f" id="dfG-lT-pA2"/>
-                                </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Count Down Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-HU-Gkw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count Down Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-HU-Gkw">
                                 <rect key="frame" x="229" y="353" width="143" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Sxp-ey-bUH"/>
+                                    <constraint firstAttribute="width" constant="143" id="fUp-fS-0BM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,6 +71,7 @@
                             <constraint firstItem="gaO-eR-g5I" firstAttribute="top" secondItem="Jpv-Sx-k93" secondAttribute="bottom" constant="20" id="BRm-WG-ywA"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="Eyq-1k-efW"/>
                             <constraint firstItem="1xM-HU-Gkw" firstAttribute="top" secondItem="gaO-eR-g5I" secondAttribute="bottom" constant="8" symbolic="YES" id="Fuf-P8-M5g"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1xM-HU-Gkw" secondAttribute="bottom" constant="226" id="GWb-xn-qwc"/>
                             <constraint firstAttribute="centerX" secondItem="Jpv-Sx-k93" secondAttribute="centerX" id="Jm6-lp-PAS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cId-Vv-SKu" secondAttribute="trailing" constant="10" id="aWl-Ne-hiD"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="duE-Lj-nqX"/>
@@ -178,7 +146,4 @@
             <point key="canvasLocation" x="-897" y="399"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="friends-1" width="100" height="100"/>
-    </resources>
 </document>
