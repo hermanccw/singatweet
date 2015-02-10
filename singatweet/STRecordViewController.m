@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSTimer *countDownTimer;
 @property (nonatomic, assign) NSInteger tickCount;
 @property (nonatomic, assign) NSInteger recordTimeInMS;
+@property (nonatomic, strong) TWTRTweet *referenceTweet;
 @end
 
 @implementation STRecordViewController
@@ -215,7 +216,7 @@
 
 #pragma mark - STRecordViewInterface
 - (void)showUIWithReferenceTweet:(TWTRTweet *)tweet {
-    
+    self.referenceTweet = tweet;
 }
 
 @end

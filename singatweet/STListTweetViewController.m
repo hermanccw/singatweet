@@ -41,6 +41,11 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     [self reloadEntries];
 }
 
+#pragma mark - Public
+- (void)didTapOnTweet:(TWTRTweet*)tweet {
+    [self.eventHandler startToRecordTweet:tweet];
+}
+
 #pragma mark - UITableViewDelegate and DataSource Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

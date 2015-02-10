@@ -26,7 +26,7 @@
 
 
 - (void)tweetView:(TWTRTweetView *)tweetView didSelectTweet:(TWTRTweet *)tweet {
-    NSLog(@"here");
+    [self.controller didTapOnTweet:tweet];
 }
 
 

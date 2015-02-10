@@ -8,6 +8,7 @@
 
 @import UIKit;
 #import <Foundation/Foundation.h>
+#import <Twitter/Twitter.h>
 #import "STListModuleInteface.h"
 #import "STListTweetInteractorIO.h"
 #import "STListTweetWireframe.h"

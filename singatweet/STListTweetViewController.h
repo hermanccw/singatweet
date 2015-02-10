@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "STListModuleInteface.h"
 #import "STListTweetViewInterface.h"
+#import <Twitter/Twitter.h>
 
 
 @interface STListTweetViewController : UITableViewController<STListTweetViewInterface>
 
 @property (nonatomic, strong) id<STListModuleInteface> eventHandler;
+
+- (void) didTapOnTweet:(TWTRTweet*)tweet;
 @end

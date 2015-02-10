@@ -22,10 +22,8 @@ static NSString *RecordViewController = @"STRecordViewController";
 - (void)presentRecordInterfaceFromViewController:(UIViewController *)viewController withTweet:(TWTRTweet*)tweet
 {
     STRecordViewController *recordViewController = [self recordViewController];
-    self.recordPresenter.referenceTweet = tweet;
+    [self.recordPresenter configureUserInterfaceForPresentation:recordViewController withReferenceTweet:tweet];
     recordViewController.eventHandler = self.recordPresenter;
-    
-    
     [viewController presentViewController:recordViewController animated:YES completion:nil];
     self.presentedViewController = viewController;
 }

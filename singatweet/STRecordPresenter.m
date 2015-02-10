@@ -28,8 +28,9 @@
 }
 
 
-- (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface {
-    [recordViewUserInterface showUIWithReferenceTweet:nil];
+- (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface
+                           withReferenceTweet:(TWTRTweet*)tweet{
+    [recordViewUserInterface showUIWithReferenceTweet:tweet];
 }
 
 @end

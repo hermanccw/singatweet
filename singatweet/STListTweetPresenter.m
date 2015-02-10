@@ -16,6 +16,10 @@
     [self.interactor findPopularTweets];
 }
 
+- (void)startToRecordTweet:(TWTRTweet*)tweet {
+    [self.listWireframe presentRecordInterfaceWithTweet:tweet];
+}
+
 #pragma mark - STListTweetInteractorOutput
 - (void)foundPopularTweets:(NSArray *)tweets {
     [self.userInterface showDisplayTweets:tweets];

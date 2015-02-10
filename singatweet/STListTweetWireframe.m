@@ -10,6 +10,7 @@
 #import "STListTweetViewController.h"
 #import "STListTweetPresenter.h"
 #import "STRootViewWireframe.h"
+#import "STRecordWireframe.h"
 
 static NSString *ListTweetViewControllerIdentifier = @"STListTweetViewController";
 
@@ -30,6 +31,11 @@ static NSString *ListTweetViewControllerIdentifier = @"STListTweetViewController
     
     [self.rootWireframe showRootViewController:listViewController
                                       inWindow:window];
+}
+
+
+- (void)presentRecordInterfaceWithTweet:(TWTRTweet*)tweet {
+    [self.recordWireframe presentRecordInterfaceFromViewController:self.listTweetViewController withTweet:tweet];
 }
 
 

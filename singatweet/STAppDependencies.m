@@ -15,9 +15,15 @@
 #import "STListTweetPresenter.h"
 #import "STListTweetWireframe.h"
 
+#import "STRecordInteractor.h"
+#import "STRecordPresenter.h"
+#import "STRecordWireframe.h"
+
 @interface STAppDependencies ()
 
+
 @property (nonatomic, strong) STListTweetWireframe *listTweetWireframe;
+@property (nonatomic, strong) STRecordWireframe *recordWireframe;
 
 @end
 
@@ -46,7 +52,6 @@
     STListTweetDataManager *listDataManager = [[STListTweetDataManager alloc] init];
     STListTweetInteractor *listInteractor = [[STListTweetInteractor alloc] initWithDataManager:listDataManager];
     
-    // ListTweet Module Classes
     listInteractor.output = listPresenter;
     
     listPresenter.interactor = listInteractor;
@@ -56,6 +61,19 @@
     listWireframe.rootWireframe = rootWireframe;
     self.listTweetWireframe = listWireframe;
     
+    
+    // Record Modules Classes
+    STRecordWireframe *recordWireframe = [[STRecordWireframe alloc] init];
+    STRecordPresenter *recordPresenter = [[STRecordPresenter alloc] init];
+    STRecordInteractor *recordInteractor = [[STRecordInteractor alloc] init];
+    
+    recordPresenter.interactor = recordInteractor;
+    recordPresenter.wireframe = recordWireframe;
+    recordWireframe.recordPresenter = recordPresenter;
+    
+    self.recordWireframe = recordWireframe;
+    
+    self.listTweetWireframe.recordWireframe = self.recordWireframe;
 }
 
 @end
