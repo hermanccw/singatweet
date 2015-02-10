@@ -39,6 +39,25 @@
     self.inputOscilloscope.frame = CGRectMake(0, 0, self.headerView.frame.size.width, self.headerView.frame.size.height);
 }
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    
+//    NSLog(@"old contraint: %f", self.tweetViewHeightContaints.constant);
+//    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
+//    [self.tweetView addSubview:tweetView];
+//    
+//    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
+//    NSLog(@"size: %@", NSStringFromCGSize(size));
+//    if (size.height != self.tweetViewHeightContaints.constant) {
+//        self.tweetViewHeightContaints.constant = 300.0f;
+//        NSLog(@"new contraint: %f", self.tweetViewHeightContaints.constant);
+//        [self.view setNeedsUpdateConstraints];
+//        [UIView animateWithDuration:0.25f animations:^{
+//            [self.view layoutIfNeeded];
+//        }];
+//    }
+//}
+
 - (IBAction)recordPressed:(id)sender {
     if ( self.recorder ) {
         [self.recorder finishRecording];
@@ -184,7 +203,7 @@
     seconds -= minutes * 60;
     minutes -= hours * 60;
     
-    NSString * result = [NSString stringWithFormat:@"%02ldm:%02lds:%02ldms",
+    NSString * result = [NSString stringWithFormat:@"%01ld:%02ld.%02ld",
                             (long)minutes,
                             (long)seconds,milliseconds%1000];
     self.countDownLabel.text = result;
@@ -210,11 +229,10 @@
     [self.headerView.layer addSublayer:self.inputOscilloscope];
     [self.audioController addInputReceiver:self.inputOscilloscope];
     [self.inputOscilloscope start];
-    [self.tweetView configureWithTweet:self.referenceTweet];
-   
+    
     // setup count down label
     self.tickCount = 3;
-    self.recordTimeInMS = 5 * 1000;
+    self.recordTimeInMS = 60 * 1000;
     [self updateCountDownLabel:self.recordTimeInMS];
     
     
@@ -222,6 +240,17 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                           target:self
                                                                                           action:@selector(cancelPressed:)];
+    
+    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
+    [self.tweetViewContainer addSubview:tweetView];
+    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
+    if (size.height != self.tweetViewHeightContaints.constant) {
+        self.tweetViewHeightContaints.constant = size.height;
+        [self.view setNeedsUpdateConstraints];
+        [UIView animateWithDuration:0.25f animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 - (void) cancelPressed:(UIBarButtonItem *)sender {
