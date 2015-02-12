@@ -15,15 +15,31 @@
 @implementation STRecordPresenter
 
 #pragma mark - STRecordModuleInterface
-- (void) saveAudio:(NSData*)audio forTweet:(TWTRTweet*)referenceTweet {
+- (void)saveAudio:(NSData*)audio forTweet:(TWTRTweet*)referenceTweet {
     
 }
 
-- (void) associatedNewTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL {
+- (void)associatedNewTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL {
     
 }
 
-- (void) cancelRecordAudioForTweet {
+- (void)startRecordingTweet {
+    
+}
+
+- (void)pauseRecordingTweet {
+    
+}
+
+- (void)stopRecordingTweet {
+    
+}
+
+- (void)playRecordedTweet {
+    
+}
+
+- (void)cancelRecordAudioForTweet {
     [self.wireframe dismissRecordInterface];
 }
 

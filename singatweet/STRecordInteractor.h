@@ -10,6 +10,15 @@
 #import <TwitterKit/TwitterKit.h>
 
 @interface STRecordInteractor : NSObject
+
+- (void)startRecordingTweet;
+
+- (void)pauseRecordingTweet;
+
+- (void)stopRecordingTweet;
+
+- (void)playRecordedTweet;
+
 - (void) saveAudioFile:(NSData*)audio;
 - (void) saveTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL andReferenceTweet:(TWTRTweet*)referenceTweet;
 

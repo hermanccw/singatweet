@@ -82,6 +82,9 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="aib-Px-BMp" id="TiQ-qr-iY6"/>
+                        <outlet property="playButton" destination="q1Z-ZS-4Xd" id="Aty-sP-RLe"/>
+                        <outlet property="recordButton" destination="c4i-Mq-p3G" id="qJi-4Z-Gby"/>
+                        <outlet property="tweetButton" destination="ex8-Mw-fbs" id="kdF-VD-nEx"/>
                         <outlet property="tweetViewContainer" destination="cId-Vv-SKu" id="bgF-FQ-tX7"/>
                     </connections>
                 </viewController>

@@ -222,20 +222,7 @@
                                                                                           target:self
                                                                                           action:@selector(cancelPressed:)];
     
-//    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.referenceTweet];
-//    [self.tweetViewContainer addSubview:tweetView];
     [self.tweetViewContainer configureWithTweet:self.referenceTweet];
-    
-    
-    
-//    CGSize size = [tweetView sizeThatFits:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
-//    if (size.height != self.tweetViewHeightContaints.constant) {
-//        self.tweetViewHeightContaints.constant = size.height;
-//        [self.view setNeedsUpdateConstraints];
-//        [UIView animateWithDuration:0.25f animations:^{
-//            [self.view layoutIfNeeded];
-//        }];
-//    }
 }
 
 - (void) cancelPressed:(UIBarButtonItem *)sender {

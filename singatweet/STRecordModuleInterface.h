@@ -14,5 +14,13 @@
 
 - (void) associatedNewTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL;
 
+- (void) startRecordingTweet;
+
+- (void) pauseRecordingTweet;
+
+- (void) stopRecordingTweet;
+
+- (void) playRecordedTweet;
+
 - (void) cancelRecordAudioForTweet;
 @end
