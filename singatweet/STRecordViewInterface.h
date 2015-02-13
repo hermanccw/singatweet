@@ -13,4 +13,11 @@
 
 - (void) showUIWithReferenceTweet:(TWTRTweet*)tweet;
 
+- (void) enableRecordButton;
+- (void) disableRecordButton;
+
+- (void) enablePlayButton;
+- (void) disablePlayButton;
+
+
 @end
