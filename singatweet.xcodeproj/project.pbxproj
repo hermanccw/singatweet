@@ -49,6 +49,7 @@
 /* Begin PBXFileReference section */
 		39A1E4D37F134CD683D35006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		89255BCE403D4203A037031A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1276FB1A8DA2F700FFAC29 /* STRecordInteractorIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STRecordInteractorIO.h; sourceTree = "<group>"; };
 		8B202E9E1A86CE020096D2DB /* STListTweetInteractorIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STListTweetInteractorIO.h; sourceTree = "<group>"; };
 		8B202E9F1A86CF220096D2DB /* STListTweetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STListTweetInteractor.h; sourceTree = "<group>"; };
 		8B202EA01A86CF220096D2DB /* STListTweetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STListTweetInteractor.m; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 			children = (
 				8B852CFC1A88186400B40722 /* STRecordInteractor.h */,
 				8B852CFD1A88186400B40722 /* STRecordInteractor.m */,
+				8B1276FB1A8DA2F700FFAC29 /* STRecordInteractorIO.h */,
 			);
 			name = "Application Logic";
 			sourceTree = "<group>";

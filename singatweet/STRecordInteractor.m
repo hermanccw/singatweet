@@ -41,6 +41,7 @@
 
 - (void)startRecordingTweet {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [self.output startedRecording];
 }
 
 - (void)pauseRecordingTweet {
@@ -52,7 +53,7 @@
     [self.audioController removeOutputReceiver:self.recorder];
     [self.audioController removeInputReceiver:self.recorder];
     self.recorder = nil;
-//    self.recordButton.selected = NO;
+    [self.output stoppedRecording];
 }
 
 - (void)playRecordedTweet {
@@ -77,12 +78,11 @@
     @weakify(self)
     self.player.completionBlock = ^{
         @strongify(self)
-//        self.playButton.selected = NO;
+        [self.output stoppedPlayingRecording];
         self.player = nil;
     };
     [self.audioController addChannels:@[self.player]];
-    
-//    self.playButton.selected = YES;
+    [self.output startedToPlayRecording];
 }
 
 /**
@@ -155,8 +155,6 @@
         return;
     }
     
-//    self.recordButton.selected = YES;
-    
     [self.audioController addOutputReceiver:self.recorder];
     [self.audioController addInputReceiver:self.recorder];
     [self startCountDown];
@@ -171,7 +169,7 @@
 
 - (void) handleCountDownTimer {
     self.recordTimeInMS -= 10;
-//    [self updateCountDownLabel:self.recordTimeInMS];
+    [self.output updatedRemainingMS:self.recordTimeInMS];
     if (self.recordTimeInMS == 0) {
         [self stopRecording];
     }
@@ -187,7 +185,7 @@
         [self.audioController removeOutputReceiver:self.recorder];
         [self.audioController removeInputReceiver:self.recorder];
         self.recorder = nil;
-//        self.recordButton.selected = NO;
+        [self.output stoppedRecording];
     }
 }
 

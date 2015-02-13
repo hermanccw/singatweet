@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "STRecordModuleInterface.h"
+#import "STRecordInteractorIO.h"
 
-
-@class STRecordInteractor;
 @class STRecordWireframe;
 
 @protocol STRecordViewInterface;
 
 
-@interface STRecordPresenter : NSObject<STRecordModuleInterface>
+@interface STRecordPresenter : NSObject<STRecordInteractorOutput, STRecordModuleInterface>
 
-@property (nonatomic, strong) STRecordInteractor *interactor;
+@property (nonatomic, strong) id<STRecordInteractorInput> interactor;
 @property (nonatomic, strong) STRecordWireframe *wireframe;
+@property (nonatomic, strong) UIViewController<STRecordViewInterface> *userInterface;
 
 - (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface
                            withReferenceTweet:(TWTRTweet*)tweet;

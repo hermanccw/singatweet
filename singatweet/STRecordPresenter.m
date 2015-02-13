@@ -24,7 +24,7 @@
 }
 
 - (void)startRecordingTweet {
-    
+    [self.interactor startRecordingTweet];
 }
 
 - (void)pauseRecordingTweet {
@@ -32,11 +32,12 @@
 }
 
 - (void)stopRecordingTweet {
+    [self.interactor stopRecordingTweet];
     
 }
 
 - (void)playRecordedTweet {
-    
+    [self.interactor playRecordedTweet];
 }
 
 - (void)cancelRecordAudioForTweet {
@@ -47,6 +48,32 @@
 - (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface
                            withReferenceTweet:(TWTRTweet*)tweet{
     [recordViewUserInterface showUIWithReferenceTweet:tweet];
+}
+
+#pragma mark - STRecordInteractorOutput
+
+- (void)startedRecording {
+    
+}
+
+- (void)pausedRecording {
+    
+}
+
+- (void)stoppedRecording {
+    
+}
+
+- (void)startedToPlayRecording {
+    
+}
+
+- (void)stoppedPlayingRecording {
+    
+}
+
+- (void)updatedRemainingMS:(NSInteger)remainingMS {
+    
 }
 
 @end

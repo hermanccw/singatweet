@@ -8,18 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <TwitterKit/TwitterKit.h>
+#import "STRecordInteractorIO.h"
 
-@interface STRecordInteractor : NSObject
 
-- (void)startRecordingTweet;
+@interface STRecordInteractor : NSObject<STRecordInteractorInput>
 
-- (void)pauseRecordingTweet;
-
-- (void)stopRecordingTweet;
-
-- (void)playRecordedTweet;
-
-- (void) saveAudioFile:(NSData*)audio;
-- (void) saveTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL andReferenceTweet:(TWTRTweet*)referenceTweet;
-
+@property (nonatomic, weak) id<STRecordInteractorOutput> output;
 @end
