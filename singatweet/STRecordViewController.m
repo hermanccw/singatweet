@@ -7,22 +7,12 @@
 //
 
 #import "STRecordViewController.h"
-#import "TheAmazingAudioEngine.h"
-#import "AERecorder.h"
 #import "TPOscilloscopeLayer.h"
 #import <TwitterKit/TwitterKit.h>
-#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface STRecordViewController ()
-@property (nonatomic, strong) AEAudioController *audioController;
-@property (nonatomic, strong) AERecorder *recorder;
-@property (nonatomic, strong) AEAudioFilePlayer *player;
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSTimer *countDownTimer;
-@property (nonatomic, assign) NSInteger tickCount;
-@property (nonatomic, assign) NSInteger recordTimeInMS;
 @property (nonatomic, strong) TWTRTweet *referenceTweet;
 @end
 
@@ -30,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupAudioController];
     [self configureView];
 }
 
@@ -40,182 +29,34 @@
 }
 
 - (IBAction)recordPressed:(id)sender {
-    if ( self.recorder ) {
-        [self.recorder finishRecording];
-        [self.audioController removeOutputReceiver:self.recorder];
-        [self.audioController removeInputReceiver:self.recorder];
-        self.recorder = nil;
-        self.recordButton.selected = NO;
-    } else if (self.timer == nil) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+   
+    if (self.recordButton.selected) {
+        [self.eventHandler stopRecordingTweet];
+    }
+    else {
+        [self.eventHandler startRecordingTweet];
     }
 }
 
 - (IBAction)playPressed:(id)sender {
-    
-    if ( self.player ) {
-        [self.audioController removeChannels:@[self.player]];
-        self.player = nil;
-        self.playButton.selected = NO;
-    } else {
-        NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
-        
-        if ( ![[NSFileManager defaultManager] fileExistsAtPath:path] ) return;
-        
-        NSError *error = nil;
-        self.player = [AEAudioFilePlayer audioFilePlayerWithURL:[NSURL fileURLWithPath:path] audioController:self.audioController error:&error];
-        
-        if ( !self.player ) {
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[NSString stringWithFormat:@"Couldn't start playback: %@", [error localizedDescription]]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"OK", nil] show];
-            return;
-        }
-        
-        self.player.removeUponFinish = YES;
-        __weak STRecordViewController *weakSelf = self;
-        self.player.completionBlock = ^{
-            STRecordViewController *strongSelf = weakSelf;
-            strongSelf.playButton.selected = NO;
-            weakSelf.player = nil;
-        };
-        [self.audioController addChannels:@[self.player]];
-        
-        self.playButton.selected = YES;
-    }
- 
-
-}
-
-- (void) tick {
-    if (self.tickCount > 0) {
-        [self playTickSound];
-        self.tickCount = self.tickCount - 1;
-        
-        
+    if (self.playButton.selected) {
     }
     else {
-        [self.timer invalidate];
-        self.timer = nil;
-        self.tickCount = 3;
-        [self startRecording];
+        [self.eventHandler playRecordedTweet];
     }
-}
-
-- (void) playTickSound {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"tick" ofType:@"wav"];
-    
-    if ( ![[NSFileManager defaultManager] fileExistsAtPath:path] ) return;
-    
-    NSError *error = nil;
-    self.player = [AEAudioFilePlayer audioFilePlayerWithURL:[NSURL fileURLWithPath:path] audioController:self.audioController error:&error];
-    
-    if ( !self.player ) {
-        return;
-    }
-    
-    self.player.removeUponFinish = YES;
-    __weak STRecordViewController *weakSelf = self;
-    self.player.completionBlock = ^{
-        weakSelf.player = nil;
-    };
-    [self.audioController addChannels:@[self.player]];
-}
-
-- (void) startRecording {
-    self.recorder = [[AERecorder alloc] initWithAudioController:self.audioController];
-    NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
-    NSError *error = nil;
-    if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileAIFFType error:&error] ) {
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:[NSString stringWithFormat:@"Couldn't start recording: %@", [error localizedDescription]]
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"OK", nil] show];
-        self.recorder = nil;
-        return;
-    }
-    
-    self.recordButton.selected = YES;
-    
-    [self.audioController addOutputReceiver:self.recorder];
-    [self.audioController addInputReceiver:self.recorder];
-    [self startCountDown];
-    
-}
-
-- (void) stopRecording {
-    if (self.countDownTimer) {
-        [self.countDownTimer invalidate];
-        self.countDownTimer = nil;
-    }
-    if ( self.recorder ) {
-        [self.recorder finishRecording];
-        [self.audioController removeOutputReceiver:self.recorder];
-        [self.audioController removeInputReceiver:self.recorder];
-        self.recorder = nil;
-        self.recordButton.selected = NO;
-    }
-}
-
-- (void) startCountDown {
-    if (self.countDownTimer == nil) {
-        self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(handleCountDownTimer) userInfo:nil repeats:YES];
-    }
-}
-
-- (void) handleCountDownTimer {
-    self.recordTimeInMS -= 10;
-    [self updateCountDownLabel:self.recordTimeInMS];
-    if (self.recordTimeInMS == 0) {
-        [self stopRecording];
-    }
-}
-
-- (void) updateCountDownLabel:(NSInteger)milliseconds {
-    NSInteger seconds = milliseconds/1000;
-    NSInteger minutes = seconds / 60;
-    NSInteger hours = minutes / 60;
-    
-    seconds -= minutes * 60;
-    minutes -= hours * 60;
-    
-    NSString * result = [NSString stringWithFormat:@"%01ld:%02ld.%02ld",
-                            (long)minutes,
-                            (long)seconds,milliseconds%1000];
-    self.countDownLabel.text = result;
 }
 
 #pragma mark - Private
-- (void) setupAudioController {
-    // Do any additional setup after loading the view, typically from a nib.
-    self.audioController = [[AEAudioController alloc]
-                            initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
-                            inputEnabled:YES];
-    NSError *error;
-    [self.audioController start:&error];
-}
-
 - (void) configureView {
     self.title = NSLocalizedString(@"Sing it!", nil);
     
     // setup wave header
-    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
-    self.inputOscilloscope.frame = CGRectZero;
-    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-    [self.headerView.layer addSublayer:self.inputOscilloscope];
-    [self.audioController addInputReceiver:self.inputOscilloscope];
-    [self.inputOscilloscope start];
-    
-    // setup count down label
-    self.tickCount = 3;
-    self.recordTimeInMS = 60 * 1000;
-    [self updateCountDownLabel:self.recordTimeInMS];
-    
+//    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
+//    self.inputOscilloscope.frame = CGRectZero;
+//    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+//    [self.headerView.layer addSublayer:self.inputOscilloscope];
+//    [self.audioController addInputReceiver:self.inputOscilloscope];
+//    [self.inputOscilloscope start];
     
     // cancel and submit
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
@@ -232,6 +73,36 @@
 #pragma mark - STRecordViewInterface
 - (void)showUIWithReferenceTweet:(TWTRTweet *)tweet {
     self.referenceTweet = tweet;
+}
+
+- (void) enableRecordButton {
+    self.recordButton.selected = NO;
+    
+}
+- (void) disableRecordButton {
+    self.recordButton.selected = YES;
+}
+
+- (void) enablePlayButton {
+    self.playButton.selected = NO;
+    
+}
+- (void) disablePlayButton {
+    self.playButton.selected = YES;
+}
+
+- (void)updateCountDownLabelWithRemainingMS:(NSInteger)remainingMS {
+    NSInteger seconds = remainingMS/1000;
+    NSInteger minutes = seconds / 60;
+    NSInteger hours = minutes / 60;
+    
+    seconds -= minutes * 60;
+    minutes -= hours * 60;
+    
+    NSString * result = [NSString stringWithFormat:@"%01ld:%02ld.%02ld",
+                         (long)minutes,
+                         (long)seconds,remainingMS%1000];
+    self.countDownLabel.text = result;
 }
 
 @end

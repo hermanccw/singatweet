@@ -53,7 +53,7 @@
 #pragma mark - STRecordInteractorOutput
 
 - (void)startedRecording {
-    
+    [self.userInterface disableRecordButton];
 }
 
 - (void)pausedRecording {
@@ -61,19 +61,20 @@
 }
 
 - (void)stoppedRecording {
+    [self.userInterface enableRecordButton];
     
 }
 
 - (void)startedToPlayRecording {
-    
+    [self.userInterface disablePlayButton];
 }
 
 - (void)stoppedPlayingRecording {
-    
+    [self.userInterface enablePlayButton];
 }
 
 - (void)updatedRemainingMS:(NSInteger)remainingMS {
-    
+    [self.userInterface updateCountDownLabelWithRemainingMS:remainingMS];
 }
 
 @end

@@ -19,5 +19,6 @@
 - (void) enablePlayButton;
 - (void) disablePlayButton;
 
+- (void) updateCountDownLabelWithRemainingMS:(NSInteger)remainingMS;
 
 @end
