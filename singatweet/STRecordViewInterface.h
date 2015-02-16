@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <TwitterKit/TwitterKit.h>
+#import "TheAmazingAudioEngine.h"
 
 @protocol STRecordViewInterface <NSObject>
 
-- (void) showUIWithReferenceTweet:(TWTRTweet*)tweet;
+- (void) showUIWithReferenceTweet:(TWTRTweet*)tweet andAudioController:(AEAudioController*)audioController;
 
 - (void) enableRecordButton;
 - (void) disableRecordButton;

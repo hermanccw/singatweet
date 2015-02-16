@@ -65,7 +65,11 @@
     // Record Modules Classes
     STRecordWireframe *recordWireframe = [[STRecordWireframe alloc] init];
     STRecordPresenter *recordPresenter = [[STRecordPresenter alloc] init];
-    STRecordInteractor *recordInteractor = [[STRecordInteractor alloc] init];
+    
+    AEAudioController *controller = [[AEAudioController alloc]
+                                     initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
+                                     inputEnabled:YES];
+    STRecordInteractor *recordInteractor = [[STRecordInteractor alloc] initWithAudioController:controller];
     
     recordPresenter.interactor = recordInteractor;
     recordPresenter.wireframe = recordWireframe;

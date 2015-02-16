@@ -7,13 +7,10 @@
 //
 
 #import "STRecordInteractor.h"
-#import "TheAmazingAudioEngine.h"
-#import "AERecorder.h"
-#import <AudioToolbox/AudioToolbox.h>
+
 #import "EXTScope.h"
 
 @interface STRecordInteractor()
-@property (nonatomic, strong) AEAudioController *audioController;
 @property (nonatomic, strong) AERecorder *recorder;
 @property (nonatomic, strong) AEAudioFilePlayer *player;
 @property (nonatomic, strong) NSTimer *timer;
@@ -24,19 +21,23 @@
 
 @implementation STRecordInteractor
 
-- (instancetype)init {
+- (instancetype) init {
+    [super doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (instancetype) initWithAudioController:(AEAudioController*)audioController {
     self = [super init];
     if (self) {
         self.tickCount = 3;
         self.recordTimeInMS = 60 * 1000;
         // Do any additional setup after loading the view, typically from a nib.
-        self.audioController = [[AEAudioController alloc]
-                                initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
-                                inputEnabled:YES];
+        self.audioController = audioController;
         NSError *error;
         [self.audioController start:&error];
     }
     return self;
+    
 }
 
 - (void)startRecordingTweet {

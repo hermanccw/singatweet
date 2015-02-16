@@ -14,6 +14,7 @@
 @interface STRecordViewController ()
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
 @property (nonatomic, strong) TWTRTweet *referenceTweet;
+@property (nonatomic, strong) AEAudioController *audioController;
 @end
 
 @implementation STRecordViewController
@@ -51,12 +52,12 @@
     self.title = NSLocalizedString(@"Sing it!", nil);
     
     // setup wave header
-//    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
-//    self.inputOscilloscope.frame = CGRectZero;
-//    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-//    [self.headerView.layer addSublayer:self.inputOscilloscope];
-//    [self.audioController addInputReceiver:self.inputOscilloscope];
-//    [self.inputOscilloscope start];
+    self.inputOscilloscope = [[TPOscilloscopeLayer alloc] initWithAudioController:self.audioController];
+    self.inputOscilloscope.frame = CGRectZero;
+    self.inputOscilloscope.lineColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    [self.headerView.layer addSublayer:self.inputOscilloscope];
+    [self.audioController addInputReceiver:self.inputOscilloscope];
+    [self.inputOscilloscope start];
     
     // cancel and submit
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
@@ -71,8 +72,9 @@
 }
 
 #pragma mark - STRecordViewInterface
-- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet {
+- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet andAudioController:(AEAudioController *)audioController {
     self.referenceTweet = tweet;
+    self.audioController = audioController;
 }
 
 - (void) enableRecordButton {

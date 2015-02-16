@@ -9,9 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <TwitterKit/TwitterKit.h>
 #import "STRecordInteractorIO.h"
+#import "TheAmazingAudioEngine.h"
+#import "AERecorder.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface STRecordInteractor : NSObject<STRecordInteractorInput>
 
 @property (nonatomic, weak) id<STRecordInteractorOutput> output;
+@property (nonatomic, strong) AEAudioController *audioController;
+
+
+- (instancetype) initWithAudioController:(AEAudioController*)audioController;
 @end

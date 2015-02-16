@@ -6,7 +6,12 @@
 //  Copyright (c) 2015 ironark. All rights reserved.
 //
 
+@class AEAudioController;
+
 @protocol STRecordInteractorInput <NSObject>
+
+@property (nonatomic, strong) AEAudioController *audioController;
+
 - (void)startRecordingTweet;
 
 - (void)pauseRecordingTweet;
