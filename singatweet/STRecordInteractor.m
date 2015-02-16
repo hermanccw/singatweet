@@ -50,11 +50,7 @@
 }
 
 - (void)stopRecordingTweet {
-    [self.recorder finishRecording];
-    [self.audioController removeOutputReceiver:self.recorder];
-    [self.audioController removeInputReceiver:self.recorder];
-    self.recorder = nil;
-    [self.output stoppedRecording];
+    [self stopRecording];
 }
 
 - (void)playRecordedTweet {

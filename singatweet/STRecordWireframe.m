@@ -23,6 +23,7 @@ static NSString *RecordViewController = @"STRecordViewController";
 {
     STRecordViewController *recordViewController = [self recordViewController];
     [self.recordPresenter configureUserInterfaceForPresentation:recordViewController withReferenceTweet:tweet];
+    self.recordPresenter.userInterface = recordViewController;
     recordViewController.eventHandler = self.recordPresenter;
     self.presentedViewController = viewController;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recordViewController];

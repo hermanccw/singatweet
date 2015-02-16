@@ -29,12 +29,18 @@
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="recordPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="utH-hq-IPf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1Z-ZS-4Xd">
                                 <rect key="frame" x="205" y="185" width="30" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="playPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ata-p0-gXi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ex8-Mw-fbs">
                                 <rect key="frame" x="365" y="185" width="40" height="30"/>
@@ -49,6 +55,12 @@
                                     <constraint firstAttribute="height" constant="50" id="Xor-BP-vpe"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-W8-zsi">
+                                <rect key="frame" x="205" y="225" width="200" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -58,12 +70,15 @@
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="Eyq-1k-efW"/>
                             <constraint firstItem="c4i-Mq-p3G" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="bottom" constant="8" id="Jg4-Ps-dOj"/>
                             <constraint firstItem="ex8-Mw-fbs" firstAttribute="leading" secondItem="c4i-Mq-p3G" secondAttribute="trailing" constant="40" id="Opq-s6-H5p"/>
+                            <constraint firstItem="fe6-W8-zsi" firstAttribute="top" secondItem="q1Z-ZS-4Xd" secondAttribute="bottom" constant="10" id="TAF-j9-jkO"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="VEq-xg-PpN"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="Xr1-8f-3U5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cId-Vv-SKu" secondAttribute="trailing" constant="10" id="aWl-Ne-hiD"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="duE-Lj-nqX"/>
+                            <constraint firstItem="ex8-Mw-fbs" firstAttribute="trailing" secondItem="fe6-W8-zsi" secondAttribute="trailing" id="f5a-kR-bWk"/>
                             <constraint firstItem="c4i-Mq-p3G" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="ia1-rR-CHu"/>
                             <constraint firstAttribute="centerX" secondItem="c4i-Mq-p3G" secondAttribute="centerX" id="qvK-la-XTz"/>
+                            <constraint firstItem="q1Z-ZS-4Xd" firstAttribute="leading" secondItem="fe6-W8-zsi" secondAttribute="leading" id="rdo-xi-GGD"/>
                             <constraint firstItem="c4i-Mq-p3G" firstAttribute="leading" secondItem="q1Z-ZS-4Xd" secondAttribute="trailing" constant="40" id="soZ-e0-Ev7"/>
                             <constraint firstItem="aib-Px-BMp" firstAttribute="top" secondItem="cId-Vv-SKu" secondAttribute="bottom" constant="10" id="tyw-QX-KVK"/>
                             <constraint firstItem="cId-Vv-SKu" firstAttribute="top" secondItem="aib-Px-BMp" secondAttribute="bottom" constant="10" id="vQE-hJ-h9X"/>
@@ -81,6 +96,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="fe6-W8-zsi" id="TpY-Rr-7M6"/>
                         <outlet property="headerView" destination="aib-Px-BMp" id="TiQ-qr-iY6"/>
                         <outlet property="playButton" destination="q1Z-ZS-4Xd" id="Aty-sP-RLe"/>
                         <outlet property="recordButton" destination="c4i-Mq-p3G" id="qJi-4Z-Gby"/>

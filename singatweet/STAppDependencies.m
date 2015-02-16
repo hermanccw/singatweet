@@ -70,7 +70,7 @@
                                      initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
                                      inputEnabled:YES];
     STRecordInteractor *recordInteractor = [[STRecordInteractor alloc] initWithAudioController:controller];
-    
+    recordInteractor.output = recordPresenter;
     recordPresenter.interactor = recordInteractor;
     recordPresenter.wireframe = recordWireframe;
     recordWireframe.recordPresenter = recordPresenter;
