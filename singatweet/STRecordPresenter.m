@@ -19,6 +19,7 @@
 
 - (void) startComposingTweet {
   // start saving audio to server
+    [self.interactor saveAudioFile];
 }
 
 - (void) associatedWithNewTweet:(TWTRTweet*)tweet withReferenceTweet:(TWTRTweet*)referenceTweet {

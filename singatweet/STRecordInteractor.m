@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSTimer *countDownTimer;
 @property (nonatomic, assign) NSInteger tickCount;
 @property (nonatomic, assign) NSInteger recordTimeInMS;
+@property (nonatomic, copy) NSString *localAudioFileName;
 @end
 
 @implementation STRecordInteractor
@@ -30,10 +31,12 @@
     if (self) {
         self.tickCount = 3;
         self.recordTimeInMS = 60 * 1000;
+        self.localAudioFileName = [NSString stringWithFormat:@"%@.mp3", [[NSUUID UUID] UUIDString]];
         // Do any additional setup after loading the view, typically from a nib.
         self.audioController = audioController;
         NSError *error;
         [self.audioController start:&error];
+    
     }
     return self;
     
@@ -53,8 +56,7 @@
 }
 
 - (void)playRecordedTweet {
-    NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
+    NSString *path = self.localAudioFileName;
     
     if ( ![[NSFileManager defaultManager] fileExistsAtPath:path] ) return;
     
@@ -83,11 +85,12 @@
 
 /**
  *  Save audio file for recording of a tweet
- *
- *  @param audio file to save up on to cloud
  */
-- (NSString*)saveAudioFile:(TWTRTweet *)audio {
-    return nil;
+- (void)saveAudioFile {
+    // save this to s3
+    
+    
+    [self.output uploadingAudioWithPath:nil];
 }
 
 /**
@@ -138,10 +141,9 @@
 
 - (void) startRecording {
     self.recorder = [[AERecorder alloc] initWithAudioController:self.audioController];
-    NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [documentsFolders[0] stringByAppendingPathComponent:@"Recording.aiff"];
+    NSString *path = [self localAudioPath];
     NSError *error = nil;
-    if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileAIFFType error:&error] ) {
+    if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileMP3Type error:&error] ) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:[NSString stringWithFormat:@"Couldn't start recording: %@", [error localizedDescription]]
                                    delegate:nil
@@ -183,6 +185,13 @@
         self.recorder = nil;
         [self.output stoppedRecording];
     }
+}
+
+#pragma mark - private
+- (NSString*)localAudioPath {
+    NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [documentsFolders[0] stringByAppendingPathComponent:self.localAudioFileName];
+    return path;
 }
 
 @end
