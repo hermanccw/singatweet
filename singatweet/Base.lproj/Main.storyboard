@@ -47,6 +47,9 @@
                                 <state key="normal" title="Tweet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tweetPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GKd-sb-YIk"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aib-Px-BMp">
                                 <rect key="frame" x="26" y="125" width="548" height="50"/>

@@ -47,6 +47,9 @@
     }
 }
 
+- (IBAction)tweetPressed:(id)sender {
+}
+
 #pragma mark - Private
 - (void) configureView {
     self.title = NSLocalizedString(@"Sing it!", nil);
@@ -81,6 +84,7 @@
     self.recordButton.selected = NO;
     
 }
+
 - (void) disableRecordButton {
     self.recordButton.selected = YES;
 }

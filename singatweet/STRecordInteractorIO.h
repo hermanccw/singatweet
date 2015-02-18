@@ -20,7 +20,7 @@
 
 - (void)playRecordedTweet;
 
-- (void)saveAudioFile:(NSData*)audio;
+- (NSString*)saveAudioFile:(NSData*)audio;
 - (void)saveTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL andReferenceTweet:(TWTRTweet*)referenceTweet;
 @end
 

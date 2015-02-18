@@ -7,7 +7,6 @@
 //
 
 #import "STRecordInteractor.h"
-
 #import "EXTScope.h"
 
 @interface STRecordInteractor()
@@ -87,8 +86,8 @@
  *
  *  @param audio file to save up on to cloud
  */
-- (void)saveAudioFile:(TWTRTweet *)audio {
-    
+- (NSString*)saveAudioFile:(TWTRTweet *)audio {
+    return nil;
 }
 
 /**

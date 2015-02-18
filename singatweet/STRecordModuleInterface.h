@@ -10,9 +10,9 @@
 
 @protocol STRecordModuleInterface <NSObject>
 
-- (void) saveAudio:(NSData*)audio forTweet:(TWTRTweet*)referenceTweet;
+- (void) startComposingTweet;
 
-- (void) associatedNewTweet:(TWTRTweet*)tweet withAudioURL:(NSString*)audioURL;
+- (void) associatedWithNewTweet:(TWTRTweet*)tweet withReferenceTweet:(TWTRTweet*)referenceTweet;
 
 - (void) startRecordingTweet;
 
