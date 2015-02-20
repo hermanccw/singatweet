@@ -49,6 +49,33 @@
 
 - (IBAction)tweetPressed:(id)sender {
     [self.eventHandler startComposingTweet];
+    
+//    SLComposeServiceViewController *composeVC = [[SLComposeServiceViewController alloc]init];
+//    composeVC.extensionContext
+//    composeVC.textView.textColor = [UIColor blackColor];
+//    composeVC.textView.text = [NSString stringWithFormat:@"%@ just sang your tweet #singatweet : %@", self.referenceTweet.author.formattedScreenName, [self.referenceTweet.permalink absoluteString]];
+//    composeVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    [self presentViewController:composeVC animated:YES completion:nil];
+    
+    
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+   
+  
+    NSString *prepopulatedTweet = [NSString stringWithFormat:@"%@ just sang your tweet #singatweet : %@",
+                                   self.referenceTweet.author.formattedScreenName,
+                                   self.referenceTweet.text];
+    
+    [composer setText:prepopulatedTweet];
+//    [composer setURL:[NSURL URLWithString:@"http://www.google.com"]];
+    
+    [composer showWithCompletion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            NSLog(@"Tweet composition cancelled");
+        }
+        else {
+            NSLog(@"Sending Tweet!");
+        }
+    }];
 }
 
 #pragma mark - Private
