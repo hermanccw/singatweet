@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFAmazonS3Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TheAmazingAudioEngine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03BF6E31C49045E3B2FCD10D</key>
+		<key>275211A6F1044D3ABEE95874</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC2033F58C5545F5A2E39DE5</key>
+		<key>4BB14355A9864947AD500790</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F96881BFD1A1467ABB4FB772</key>
+		<key>53419BED260D48A48363FD25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B740A0FC2C884B0D95FEB3E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF4EA3523A8E4311A3A182AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -48,6 +48,7 @@
 }
 
 - (IBAction)tweetPressed:(id)sender {
+    [self.eventHandler startComposingTweet];
 }
 
 #pragma mark - Private

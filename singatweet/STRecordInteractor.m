@@ -8,6 +8,9 @@
 
 #import "STRecordInteractor.h"
 #import "EXTScope.h"
+#import "STSongUploadService.h"
+#import "STS3SongUploadService.h"
+
 
 @interface STRecordInteractor()
 @property (nonatomic, strong) AERecorder *recorder;
@@ -31,7 +34,7 @@
     if (self) {
         self.tickCount = 3;
         self.recordTimeInMS = 60 * 1000;
-        self.localAudioFileName = [NSString stringWithFormat:@"%@.mp3", [[NSUUID UUID] UUIDString]];
+        self.localAudioFileName = [NSString stringWithFormat:@"%@.m4a", [[NSUUID UUID] UUIDString]];
         // Do any additional setup after loading the view, typically from a nib.
         self.audioController = audioController;
         NSError *error;
@@ -88,9 +91,8 @@
  */
 - (void)saveAudioFile {
     // save this to s3
-    
-    
-    [self.output uploadingAudioWithPath:nil];
+    [[self songUploadService] uploadSongAtLocalPath:[self localAudioPath]];
+    [self.output uploadingAudioWithPath:[self localAudioPath]];
 }
 
 /**
@@ -143,7 +145,7 @@
     self.recorder = [[AERecorder alloc] initWithAudioController:self.audioController];
     NSString *path = [self localAudioPath];
     NSError *error = nil;
-    if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileMP3Type error:&error] ) {
+    if ( ![self.recorder beginRecordingToFileAtPath:path fileType:kAudioFileM4AType error:&error] ) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:[NSString stringWithFormat:@"Couldn't start recording: %@", [error localizedDescription]]
                                    delegate:nil
@@ -192,6 +194,10 @@
     NSArray *documentsFolders = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [documentsFolders[0] stringByAppendingPathComponent:self.localAudioFileName];
     return path;
+}
+
+- (id<STSongUploadService>) songUploadService {
+    return [[STS3SongUploadService alloc] init];
 }
 
 @end

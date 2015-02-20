@@ -19,6 +19,7 @@
 		8B41DF711A8926E900F5C7A0 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B41DF6F1A8926E900F5C7A0 /* TwitterKit.framework */; };
 		8B41DF721A8926E900F5C7A0 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B41DF701A8926E900F5C7A0 /* TwitterKitResources.bundle */; };
 		8B4609E21A7EF28500F2231B /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B4609E11A7EF28500F2231B /* tick.wav */; };
+		8B5527A91A96DB720084C865 /* STS3SongUploadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5527A81A96DB720084C865 /* STS3SongUploadService.m */; };
 		8B6148B01A7599CE0083CF7D /* TPOscilloscopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */; };
 		8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6148B21A767BBC0083CF7D /* STRecordingTweetView.m */; };
 		8B852CFE1A88186400B40722 /* STRecordInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852CFD1A88186400B40722 /* STRecordInteractor.m */; };
@@ -72,6 +73,9 @@
 		8B41DF6F1A8926E900F5C7A0 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		8B41DF701A8926E900F5C7A0 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		8B4609E11A7EF28500F2231B /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
+		8B5527A61A96DAF80084C865 /* STSongUploadService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSongUploadService.h; sourceTree = "<group>"; };
+		8B5527A71A96DB720084C865 /* STS3SongUploadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STS3SongUploadService.h; sourceTree = "<group>"; };
+		8B5527A81A96DB720084C865 /* STS3SongUploadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STS3SongUploadService.m; sourceTree = "<group>"; };
 		8B6148AE1A7599CE0083CF7D /* TPOscilloscopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOscilloscopeLayer.h; sourceTree = "<group>"; };
 		8B6148AF1A7599CE0083CF7D /* TPOscilloscopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOscilloscopeLayer.m; sourceTree = "<group>"; };
 		8B6148B11A767BBC0083CF7D /* STRecordingTweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRecordingTweetView.h; sourceTree = "<group>"; };
@@ -162,6 +166,26 @@
 			name = Wireframe;
 			sourceTree = "<group>";
 		};
+		8B5527A41A96D9E60084C865 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B5527A61A96DAF80084C865 /* STSongUploadService.h */,
+				8B5527A71A96DB720084C865 /* STS3SongUploadService.h */,
+				8B5527A81A96DB720084C865 /* STS3SongUploadService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		8B5527A51A96D9F40084C865 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8B852CFC1A88186400B40722 /* STRecordInteractor.h */,
+				8B852CFD1A88186400B40722 /* STRecordInteractor.m */,
+				8B1276FB1A8DA2F700FFAC29 /* STRecordInteractorIO.h */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
 		8B852CF71A8816C000B40722 /* Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,9 +207,8 @@
 		8B852CF91A8816D800B40722 /* Application Logic */ = {
 			isa = PBXGroup;
 			children = (
-				8B852CFC1A88186400B40722 /* STRecordInteractor.h */,
-				8B852CFD1A88186400B40722 /* STRecordInteractor.m */,
-				8B1276FB1A8DA2F700FFAC29 /* STRecordInteractorIO.h */,
+				8B5527A51A96D9F40084C865 /* Interactor */,
+				8B5527A41A96D9E60084C865 /* Services */,
 			);
 			name = "Application Logic";
 			sourceTree = "<group>";
@@ -546,6 +569,7 @@
 				8B6148B31A767BBC0083CF7D /* STRecordingTweetView.m in Sources */,
 				8B202EAE1A86E1640096D2DB /* STAppDependencies.m in Sources */,
 				8B202EB11A870D590096D2DB /* STTwitterViewDelegateHandler.m in Sources */,
+				8B5527A91A96DB720084C865 /* STS3SongUploadService.m in Sources */,
 				8B2FE3A61A883B950063C1E2 /* STRecordPresenter.m in Sources */,
 				8B202EA11A86CF220096D2DB /* STListTweetInteractor.m in Sources */,
 				8B202EA41A86D5170096D2DB /* STListTweetPresenter.m in Sources */,

@@ -81,4 +81,9 @@
     [self.userInterface updateCountDownLabelWithRemainingMS:remainingMS];
 }
 
+
+- (void)uploadingAudioWithPath:(NSString*)path {
+    NSLog(@"uploading to audio path: %@", path);
+}
+
 @end
