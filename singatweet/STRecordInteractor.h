@@ -18,6 +18,7 @@
 
 @property (nonatomic, weak) id<STRecordInteractorOutput> output;
 @property (nonatomic, strong) AEAudioController *audioController;
+@property (nonatomic, copy, readonly) NSString *audioFileRemotePath;
 
 
 - (instancetype) initWithAudioController:(AEAudioController*)audioController;

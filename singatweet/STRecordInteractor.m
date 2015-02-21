@@ -45,6 +45,10 @@
     
 }
 
+- (NSString *)audioFileRemotePath {
+    return [NSString stringWithFormat:@"%@%@", [[self songUploadService] uploadBasePath], self.localAudioFileName];
+}
+
 - (void)startRecordingTweet {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
     [self.output startedRecording];

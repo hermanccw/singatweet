@@ -11,6 +11,9 @@
 #import "AFAmazonS3ResponseSerializer.h"
 
 @implementation STS3SongUploadService
+- (NSString *)uploadBasePath {
+    return @"https://s3.amazonaws.com/ironark-openhouse/";
+}
 
 - (void)uploadSongAtLocalPath:(NSString *)localPath {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -43,6 +46,5 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"key fetch failed: %@", error);
     }];
-
 }
 @end

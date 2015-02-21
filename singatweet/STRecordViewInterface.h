@@ -12,7 +12,9 @@
 
 @protocol STRecordViewInterface <NSObject>
 
-- (void) showUIWithReferenceTweet:(TWTRTweet*)tweet andAudioController:(AEAudioController*)audioController;
+- (void) showUIWithReferenceTweet:(TWTRTweet*)tweet
+               andAudioController:(AEAudioController*)audioController
+           andAudioFileRemotePath:(NSString*)audioFileRemotePath;
 
 - (void) enableRecordButton;
 - (void) disableRecordButton;

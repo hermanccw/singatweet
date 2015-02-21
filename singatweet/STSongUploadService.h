@@ -7,5 +7,8 @@
 //
 
 @protocol STSongUploadService <NSObject>
+
+@property (nonatomic, copy, readonly) NSString *uploadBasePath;
+
 - (void)uploadSongAtLocalPath:(NSString*)localPath;
 @end

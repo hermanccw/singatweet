@@ -51,7 +51,10 @@
 - (void)configureUserInterfaceForPresentation:(id<STRecordViewInterface>)recordViewUserInterface
                            withReferenceTweet:(TWTRTweet*)tweet{
     self.userInterface = recordViewUserInterface;
-    [recordViewUserInterface showUIWithReferenceTweet:tweet andAudioController:self.interactor.audioController];
+    
+    [recordViewUserInterface showUIWithReferenceTweet:tweet
+                                   andAudioController:self.interactor.audioController
+                               andAudioFileRemotePath:[self.interactor audioFileRemotePath]];
 }
 
 #pragma mark - STRecordInteractorOutput

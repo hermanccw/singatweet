@@ -11,6 +11,7 @@
 @protocol STRecordInteractorInput <NSObject>
 
 @property (nonatomic, strong) AEAudioController *audioController;
+@property (nonatomic, copy, readonly) NSString *audioFileRemotePath;
 
 - (void)startRecordingTweet;
 

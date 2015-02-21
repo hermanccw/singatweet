@@ -15,6 +15,7 @@
 @property (nonatomic, strong) TPOscilloscopeLayer *inputOscilloscope;
 @property (nonatomic, strong) TWTRTweet *referenceTweet;
 @property (nonatomic, strong) AEAudioController *audioController;
+@property (nonatomic, copy) NSString *audioFileRemotePath;
 @end
 
 @implementation STRecordViewController
@@ -49,24 +50,15 @@
 
 - (IBAction)tweetPressed:(id)sender {
     [self.eventHandler startComposingTweet];
-    
-//    SLComposeServiceViewController *composeVC = [[SLComposeServiceViewController alloc]init];
-//    composeVC.extensionContext
-//    composeVC.textView.textColor = [UIColor blackColor];
-//    composeVC.textView.text = [NSString stringWithFormat:@"%@ just sang your tweet #singatweet : %@", self.referenceTweet.author.formattedScreenName, [self.referenceTweet.permalink absoluteString]];
-//    composeVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    [self presentViewController:composeVC animated:YES completion:nil];
-    
-    
     TWTRComposer *composer = [[TWTRComposer alloc] init];
    
   
-    NSString *prepopulatedTweet = [NSString stringWithFormat:@"%@ just sang your tweet #singatweet : %@",
+    NSString *prepopulatedTweet = [NSString stringWithFormat:@"%@ just sang your tweet here: %@ #singatweet",
                                    self.referenceTweet.author.formattedScreenName,
-                                   self.referenceTweet.text];
+                                   self.audioFileRemotePath];
     
     [composer setText:prepopulatedTweet];
-//    [composer setURL:[NSURL URLWithString:@"http://www.google.com"]];
+//    [composer setURL:[NSURL URLWithString:self.audioFileRemotePath]];
     
     [composer showWithCompletion:^(TWTRComposerResult result) {
         if (result == TWTRComposerResultCancelled) {
@@ -103,9 +95,12 @@
 }
 
 #pragma mark - STRecordViewInterface
-- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet andAudioController:(AEAudioController *)audioController {
+- (void)showUIWithReferenceTweet:(TWTRTweet *)tweet
+              andAudioController:(AEAudioController *)audioController
+          andAudioFileRemotePath:(NSString *)audioFileRemotePath {
     self.referenceTweet = tweet;
     self.audioController = audioController;
+    self.audioFileRemotePath = audioFileRemotePath;
 }
 
 - (void) enableRecordButton {
